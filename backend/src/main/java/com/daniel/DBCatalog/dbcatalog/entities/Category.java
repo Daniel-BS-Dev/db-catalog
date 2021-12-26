@@ -1,9 +1,11 @@
 package com.daniel.DBCatalog.dbcatalog.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,12 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createdAt;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updatedAt;
 	
 	@ManyToMany(mappedBy = "categories")
 	private List<Product> products = new ArrayList<>();
@@ -50,6 +58,24 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 	
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+	
+	//metodos para mostra o horario quando criada uma categoria
+		public void setCreatedAt() {
+			createdAt = Instant.now();
+		}
+
+	public Instant getUpdatedAt() {
+		return updatedAt;
+	}
+	
+	//metodos para mostra o horario quando atualizar uma categoria
+	public void setUpdatedAt() {
+		updatedAt = Instant.now();
+	}
+
 	public List<Product> getProducts() {
 		return products;
 	}
