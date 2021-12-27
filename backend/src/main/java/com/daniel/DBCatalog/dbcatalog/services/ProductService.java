@@ -26,7 +26,7 @@ public class ProductService {
 
 	@Autowired
 	private ProductRepository repository;
-	
+
 	@Autowired
 	private CategoryRepository categoryRepository;
 
@@ -50,7 +50,7 @@ public class ProductService {
 		entity = repository.save(entity);
 		return new ProductDTO(entity);
 	}
-	
+
 	@Transactional
 	public ProductDTO updated(Long id, ProductDTO dto) {
 		try {
@@ -62,35 +62,32 @@ public class ProductService {
 			throw new ResourceNotFoundException("id " + id + " does not exist");
 		}
 	}
-	
+
 	public void delete(Long id) {
 		try {
-		    repository.deleteById(id);
-		}catch(EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException("id not found "+id);
-		}catch(DataIntegrityViolationException e) {
+			repository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("id not found " + id);
+		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Integrity violation");
 		}
-		
-		
 	}
-	
+
 	private void copyEntity(Product entity, ProductDTO dto) {
 		entity.setName(dto.getName());
 		entity.setPrice(dto.getPrice());
 		entity.setDate(dto.getDate());
 		entity.setDescription(dto.getDescription());
 		entity.setImgUrl(dto.getDescription());
-		
+
 		entity.getCategories().clear();
-		
-		for(CategoryDTO id: dto.getCategories()) {
+
+		for (CategoryDTO id : dto.getCategories()) {
 			Category catId = categoryRepository.getById(id.getId());
 			entity.getCategories().add(catId);
 		}
-		
+
 		repository.save(entity);
 	}
-	
-	
+
 }
