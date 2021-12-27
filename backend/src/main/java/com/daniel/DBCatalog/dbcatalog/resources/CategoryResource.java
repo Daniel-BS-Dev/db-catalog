@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,18 +49,23 @@ public class CategoryResource {
 		CategoryDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<CategoryDTO> insert(@Valid @RequestBody CategoryDTO entity){
+	public ResponseEntity<CategoryDTO> insert(@Valid @RequestBody CategoryDTO entity) {
 		entity = service.insert(entity);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				  .buildAndExpand(entity.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(entity.getId()).toUri();
 		return ResponseEntity.created(uri).body(entity);
 	}
-	
+
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<CategoryDTO> updated(@Valid @PathVariable Long id, @RequestBody CategoryDTO dto){
+	public ResponseEntity<CategoryDTO> updated(@Valid @PathVariable Long id, @RequestBody CategoryDTO dto) {
 		dto = service.updated(id, dto);
 		return ResponseEntity.ok().body(dto);
+	}
+
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		service.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 }
