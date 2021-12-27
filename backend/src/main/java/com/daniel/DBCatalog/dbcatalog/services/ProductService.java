@@ -5,6 +5,8 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import com.daniel.DBCatalog.dbcatalog.entities.Category;
 import com.daniel.DBCatalog.dbcatalog.entities.Product;
 import com.daniel.DBCatalog.dbcatalog.repositories.CategoryRepository;
 import com.daniel.DBCatalog.dbcatalog.repositories.ProductRepository;
+import com.daniel.DBCatalog.dbcatalog.services.exceptions.DatabaseException;
 import com.daniel.DBCatalog.dbcatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -58,6 +61,18 @@ public class ProductService {
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("id " + id + " does not exist");
 		}
+	}
+	
+	public void delete(Long id) {
+		try {
+		    repository.deleteById(id);
+		}catch(EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("id not found "+id);
+		}catch(DataIntegrityViolationException e) {
+			throw new DatabaseException("Integrity violation");
+		}
+		
+		
 	}
 	
 	private void copyEntity(Product entity, ProductDTO dto) {
