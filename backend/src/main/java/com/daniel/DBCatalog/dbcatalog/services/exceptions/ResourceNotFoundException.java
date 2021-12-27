@@ -1,4 +1,4 @@
-package com.daniel.DBCatalog.dbcatalog.resources.exceptions;
+package com.daniel.DBCatalog.dbcatalog.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;

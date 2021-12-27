@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.daniel.DBCatalog.dbcatalog.dto.CategoryDTO;
 import com.daniel.DBCatalog.dbcatalog.entities.Category;
 import com.daniel.DBCatalog.dbcatalog.repositories.CategoryRepository;
-import com.daniel.DBCatalog.dbcatalog.resources.exceptions.ResourceNotFoundException;
+import com.daniel.DBCatalog.dbcatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CategoryService {
@@ -28,7 +28,7 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
-		Category entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
+		Category entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));// essa exceção esta sendo personalizada na class StandardError
 		return new CategoryDTO(entity);
 	}
 
