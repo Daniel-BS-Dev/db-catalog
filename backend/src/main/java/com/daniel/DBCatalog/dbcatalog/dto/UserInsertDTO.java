@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.validation.constraints.Pattern;
 
+import com.daniel.DBCatalog.dbcatalog.services.validationExceptions.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
