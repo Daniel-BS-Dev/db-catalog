@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.daniel.DBCatalog.dbcatalog.dto.UserDTO;
 import com.daniel.DBCatalog.dbcatalog.dto.UserInsertDTO;
+import com.daniel.DBCatalog.dbcatalog.dto.UserUpdateDTO;
 import com.daniel.DBCatalog.dbcatalog.services.UserService;
 
 @RestController
@@ -42,15 +43,15 @@ public class UserResource {
 
 	@PostMapping
 	public ResponseEntity<UserDTO> insert(@Valid @RequestBody UserInsertDTO entity) {
-		UserDTO dto = service.insert(entity);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
-		return ResponseEntity.created(uri).body(dto);
+		UserDTO newDTO = service.insert(entity);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newDTO.getId()).toUri();
+		return ResponseEntity.created(uri).body(newDTO);
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> updated(@Valid @PathVariable Long id, @RequestBody UserDTO dto) {
-		dto = service.updated(id, dto);
-		return ResponseEntity.ok().body(dto);
+	public ResponseEntity<UserDTO> updated(@Valid @PathVariable Long id, @RequestBody UserUpdateDTO dto) {
+		UserDTO newDTO = service.updated(id, dto);
+		return ResponseEntity.ok().body(newDTO);
 	}
 	
 	@DeleteMapping(value = "/{id}")
