@@ -2,7 +2,6 @@ package com.daniel.DBCatalog.dbcatalog.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
@@ -10,11 +9,13 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.daniel.DBCatalog.dbcatalog.dto.RoleDTO;
 import com.daniel.DBCatalog.dbcatalog.dto.UserDTO;
+import com.daniel.DBCatalog.dbcatalog.dto.UserInsertDTO;
 import com.daniel.DBCatalog.dbcatalog.entities.Role;
 import com.daniel.DBCatalog.dbcatalog.entities.User;
 import com.daniel.DBCatalog.dbcatalog.repositories.RoleRepository;
@@ -24,6 +25,9 @@ import com.daniel.DBCatalog.dbcatalog.services.exceptions.ResourceNotFoundExcept
 
 @Service
 public class UserService {
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder; //metodo criado na minha class AppConfig
 
 	@Autowired
 	private UserRepository repository;
@@ -45,9 +49,10 @@ public class UserService {
 	}
 
 	@Transactional
-	public UserDTO insert(UserDTO dto) {
+	public UserDTO insert(UserInsertDTO dto) {
 		User entity = new User();
 		copyEntity(entity, dto);
+		entity.setPassword(passwordEncoder.encode(dto.getPassword()));
 		entity = repository.save(entity);
 		return new UserDTO(entity);
 	}
