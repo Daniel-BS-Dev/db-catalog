@@ -6,10 +6,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.daniel.DBCatalog.dbcatalog.dto.CategoryDTO;
 import com.daniel.DBCatalog.dbcatalog.dto.ProductDTO;
 import com.daniel.DBCatalog.dbcatalog.services.ProductService;
 
@@ -33,5 +35,11 @@ public class ProductResource {
 		Page<ProductDTO> list = service.findAllPage(pageRequest);
 	
 		return ResponseEntity.ok().body(list);
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<ProductDTO> finById(@PathVariable Long id) {
+		ProductDTO dto = service.findById(id);
+		return ResponseEntity.ok().body(dto);
 	}
 }
