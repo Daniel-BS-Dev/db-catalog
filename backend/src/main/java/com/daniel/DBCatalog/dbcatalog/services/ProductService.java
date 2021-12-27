@@ -86,8 +86,5 @@ public class ProductService {
 			Category catId = categoryRepository.getById(id.getId());
 			entity.getCategories().add(catId);
 		}
-
-		repository.save(entity);
 	}
-
 }
