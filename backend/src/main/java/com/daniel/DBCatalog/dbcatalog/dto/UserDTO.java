@@ -3,17 +3,24 @@ package com.daniel.DBCatalog.dbcatalog.dto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import com.daniel.DBCatalog.dbcatalog.entities.Role;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 import com.daniel.DBCatalog.dbcatalog.entities.User;
 
 public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	
+	@NotBlank(message = "Campo Obrigatorio")
 	private String firstName;
+	
+	@NotBlank(message = "Campo Obrigatorio")
 	private String lastName;
+	
+	@Email(message= "Por Favor Entre com um Email")
 	private String email;
 
 	private List<RoleDTO> roles = new ArrayList<>();
