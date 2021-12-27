@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.daniel.DBCatalog.dbcatalog.services.exceptions.ResourceNotFoundException;
 
-@ControllerAdvice
+@ControllerAdvice //faz a conexão com o resource
 public class ResourceExceptionHandler {
 
 	// exibindo para o usuario o erro da exceção do id
