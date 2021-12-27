@@ -9,6 +9,9 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,12 +26,17 @@ import com.daniel.DBCatalog.dbcatalog.repositories.RoleRepository;
 import com.daniel.DBCatalog.dbcatalog.repositories.UserRepository;
 import com.daniel.DBCatalog.dbcatalog.services.exceptions.DatabaseException;
 import com.daniel.DBCatalog.dbcatalog.services.exceptions.ResourceNotFoundException;
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
 
 @Service
-public class UserService {
-	
+public class UserService implements UserDetailsService {
+
+	private static Logger logger = (Logger) LoggerFactory.getLogger(UserService.class);
+
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder; //metodo criado na minha class AppConfig
+	private BCryptPasswordEncoder passwordEncoder; // metodo criado na minha class AppConfig
 
 	@Autowired
 	private UserRepository repository;
@@ -92,4 +100,17 @@ public class UserService {
 			entity.getRoles().add(catId);
 		}
 	}
-}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+		User user = repository.findByEmail(username);
+
+		if (user == null) {
+		   logger.error("user not found ", username);
+		   throw new UsernameNotFoundException("Email not found");
+		}
+		  logger.info("User found " + username);
+		  return user;
+	    }
+    }
