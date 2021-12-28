@@ -29,7 +29,7 @@ public class ProductDTO implements Serializable {
 	@PastOrPresent(message = "Data não pode ser futura")
 	private Instant date;
 	
-	@Size(min = 5, max=30, message="deve ter entre 2 a 30 caracteres")
+	@Size(min = 5, max=200, message="deve ter entre 2 a 30 caracteres")
 	@NotBlank(message="campo obrigatorio")
 	private String description;
 	private String imgUrl;
