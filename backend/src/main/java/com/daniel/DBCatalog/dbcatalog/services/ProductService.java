@@ -1,5 +1,7 @@
 package com.daniel.DBCatalog.dbcatalog.services;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
@@ -8,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,9 +33,10 @@ public class ProductService {
 	private CategoryRepository categoryRepository;
 
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAllPage(PageRequest pageRequest) {
-		Page<Product> list = repository.findAll(pageRequest);
-		return list.map(x -> new ProductDTO(x));
+	public Page<ProductDTO> findAllPaged(String name,Long categoryId, Pageable pageable) {
+		List<Category> categories = categoryId == 0 ? null : Arrays.asList(categoryRepository.getById(categoryId));  
+		Page<Product> page = repository.find(categories,name, pageable);
+		return page.map(x -> new ProductDTO(x));
 	}
 
 	@Transactional(readOnly = true)
