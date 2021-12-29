@@ -1,0 +1,38 @@
+.nav-container {
+  width: 100%;
+  height: 70px;
+  padding-left: 40px;
+}
+
+.nav-logo-text,
+.nav-logo-text:hover {
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+.main-menu {
+  width: 380px;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  li:hover {
+    color: #ffffff;
+  }
+
+  .active {
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
