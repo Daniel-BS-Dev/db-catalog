@@ -8,12 +8,9 @@ const Home = () => {
     <div className="home-container">
       <div className="home-content">
         <div className="home-text">
-          <h1>
-            Conheça o melhor
-            <br /> catálogo de produtos
-          </h1>
+          <h1>Conheça o melhor<br/> Catálogo de produtos</h1>
           <p>
-            Ajudaremos voçê a encontrar os<br/> melhores produtos disponíveis<br/> no
+            Ajudaremos você a encontrar os melhores produtos disponíveis no
             mercado
           </p>
           <Button />

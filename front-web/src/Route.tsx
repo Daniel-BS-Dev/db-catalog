@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar";
 import Catalog from "./pages/Catalog";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
+import Footer from "components/Footer";
+
 
 
 const DRoutes = () => (
@@ -13,6 +15,7 @@ const DRoutes = () => (
       <Route path='/admin' element={<Admin />} />
       <Route path='/catalog' element={<Catalog />} />
     </Routes>
+    <Footer />
   </Router>
 );
 

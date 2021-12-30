@@ -1,14 +1,17 @@
 .nav-container {
   min-height: 70px;
-  padding-left: 40px;
+  padding-left: 10px;
 }
 
-.nav-logo-text,
-.nav-logo-text:hover {
+.nav-logo-text {
   font-size: 24px;
   line-height: 33px;
   letter-spacing: -0.015em;
   color: #ffffff;
+
+  .nav-logo-text:hover{
+    color:#000;
+  }
 }
 
 .main-menu {
@@ -26,7 +29,7 @@
   }
 
   li:hover {
-    color: #ffffff;
+    color: #000;
   }
 
   .active {

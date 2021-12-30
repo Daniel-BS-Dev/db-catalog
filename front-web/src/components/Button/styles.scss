@@ -1,4 +1,63 @@
+@keyframes buttonHome {
+    from{
+        opacity: 0.5;
+        color: beige;
+    }
+    to{
+      opacity: 1;
+      color: #FFFFFF;
+    }
+}
+
+.button-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .button{
-    width:280px;
+    width: 280px;
     height: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FFFFFF;
+    
+}
+
+.button:hover{
+  animation: buttonHome linear;
+  color: #FFFFFF !important;
+
+
+}
+
+span:hover{
+    animation: buttonHome linear;
+  }
+
+.button strong{
+    width: 85%;
+    height: 100%;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    border-radius: 10px 0px 0px 10px;
+    color: #FFFFFF;
+}
+
+.button span{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(23, 31, 141, 0.8);
+    border-radius: 0px 10px 10px 0px;
 }
