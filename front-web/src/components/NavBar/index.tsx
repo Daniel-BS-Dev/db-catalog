@@ -1,6 +1,6 @@
 import './styles.scss';
 import 'bootstrap/js/src/collapse.js';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
@@ -24,15 +24,15 @@ const NavBar = () => {
         <div className="nav-container-link collapse navbar-collapse" id="dscatalog-navbar">
           <ul className="navbar-nav offset-md-2 main-menu">
             <li>
-              <Link to="/" className="active">
+            <NavLink to='/'  className={({ isActive }) => (isActive ? 'active' : 'inactive')} >
                 HOME
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/catalog">Catálogo</Link>
+              <NavLink to="/catalog" >Catálogo</NavLink>
             </li>
             <li>
-              <Link to="/admin">ADMIN</Link>
+              <NavLink to="/admin" >ADMIN</NavLink>
             </li>
           </ul>
         </div>
