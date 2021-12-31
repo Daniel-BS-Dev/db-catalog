@@ -13,7 +13,7 @@ const Home = () => {
             Ajudaremos você a encontrar os melhores produtos disponíveis no
             mercado
           </p>
-          <Button />
+          <Button text='inicie agora sua busca'/>
         </div>
         <div className="home-image">
         <Img />
