@@ -1,8 +1,16 @@
+import CardProduct from 'pages/CardProduct';
 import './styles.scss';
 
 const Catalog = () => {
     return (
-     <h1>Catalog</h1>
+     <div className='catalog-container'>
+       <div className='row catalog-content'>
+          <div className='.col-12 col-sm-4 col-md-3 catalog-product'><CardProduct/></div>
+          <div className='.col-12 col-sm-4 col-md-3 catalog-product'><CardProduct/></div>
+          <div className='.col-12 col-sm-4 col-md-3 catalog-product'><CardProduct/></div>
+          <div className='.col-12 col-sm-4 col-md-3 catalog-product'><CardProduct/></div>
+       </div>
+     </div>
     );
 }
 
