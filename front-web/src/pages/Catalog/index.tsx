@@ -1,3 +1,4 @@
+import Pagination from 'components/Pagination';
 import CardProduct from 'pages/CardProduct';
 import './styles.scss';
 
@@ -11,21 +12,9 @@ const Catalog = () => {
         <div className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product">
           <CardProduct />
         </div>
-        <div className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product">
-          <CardProduct />
-        </div>
-        <div className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product">
-          <CardProduct />
-        </div>
-        <div className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product">
-          <CardProduct />
-        </div>
-        <div className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product">
-          <CardProduct />
-        </div>
-        <div className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product">
-          <CardProduct />
-        </div>
+      </div>
+      <div className="catalog-pagination">
+        <Pagination />
       </div>
     </div>
   );

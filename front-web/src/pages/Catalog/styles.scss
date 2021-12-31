@@ -1,10 +1,20 @@
 .catalog-container{
+    display: flex;
+    flex-direction: column;
     padding: 0px 20px 15px 20px;
 }
 
 .catalog-product{
     padding: 0px;
     margin-top:20px;
+    
+}
+
+.catalog-pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px 35px 0px;
     
 }
 
