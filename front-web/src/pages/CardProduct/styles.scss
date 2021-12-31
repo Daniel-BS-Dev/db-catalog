@@ -44,11 +44,13 @@
 @media screen and (min-width:576px) {
  .cardProduct-content {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     
   }
 
   .cardproduct-image {
+    display: flex;
     width: 150px;
     height: 140px;
     padding-right: 0px;
