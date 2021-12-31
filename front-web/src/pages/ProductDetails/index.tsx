@@ -12,7 +12,7 @@ const ProductDetails = () => {
           <h2>voltar</h2>
         </div>
         <div className="row">
-          <div className="productDetails-container-info">
+          <div className="productDetails-container-info col-xl-6">
             <div className="productDetails-image">
               <img src={Product} alt="image do product" />
             </div>
@@ -21,7 +21,7 @@ const ProductDetails = () => {
               <Price />
             </div>
           </div>
-          <div className="productDetails-contails-description">
+          <div className="productDetails-contails-description col-xl-6">
             <div className="productdetails-description">
               <h3>Descrição do Produto</h3>
               <p>
