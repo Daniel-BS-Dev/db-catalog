@@ -20,28 +20,69 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    
   }
 }
- 
+
 .navLink {
-    width: 100px;
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: #f2f2f2;
-    border-radius: 40px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 22px;
-    letter-spacing: -0.015em;
-    color: #9e9e9e;
-  }
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f2f2f2;
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  color: #9e9e9e;
+}
 
 .navLink.active {
-      color: #407BFF;
-      background: rgba(64, 123, 255, 0.3);
+  color: #407bff;
+  background: rgba(64, 123, 255, 0.3);
+}
+
+@media screen and (min-width: 1200px) {
   
+  .navbaradmin-container {
+    width: 320px;
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
+
+  .navbaradmin-content {
+    width: 320px;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    ul {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+  }
+
+  .navLink {
+    width: 320px;
+    height: 90px;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    border-radius: 0px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #9e9e9e;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  .admin-links {
+    padding: 40px 40px 130px 60px;
+  }
+}
