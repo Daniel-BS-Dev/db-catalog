@@ -2,7 +2,7 @@ import './styles.scss';
 
 const AdminProducts = () => {
     return(
-    <div>
+    <div className='adminproducts-container'>
       products
     </div>
     );
