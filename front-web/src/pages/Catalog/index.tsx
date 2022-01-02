@@ -25,7 +25,7 @@ const Catalog = () => {
     //como eu já coloquei o get no AxiosParams eu não preciso colocar aqui
     axios(params).then((response) => {
       setPage(response.data);
-      console.log(page);
+
     });
   }, []);
 
