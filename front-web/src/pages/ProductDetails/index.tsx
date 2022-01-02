@@ -17,14 +17,17 @@ const ProductDetails = () => {
   const { id } = useParams<UrlParams>(); // esse id tem que ser o mesmo nome do caminho que eu passei no meu router
   //chamar o produto
   const [product, setProduct] = useState<Product>();
+  const[isLoader, setIsLaoder] = useState(false);
 
   useEffect(() => {
+    setIsLaoder(true);
     axios
       .get(`${BASE_URL}/products/${id}`)
       .then((response) => {
         setProduct(response.data);
       })
       .catch((Error) => alert(Error));
+      setIsLaoder(true);
   }, [id]);
 
   return (
@@ -36,7 +39,8 @@ const ProductDetails = () => {
             <h2>voltar</h2>
           </Link>
         </div>
-        <div className="row">
+       {isLoader ? (<h1 className='productdetails-isLoader'>Carregando ...</h1>) : (
+          <div className="row">
           <div className="productDetails-container-info col-xl-6">
             <div className="productDetails-image">
               <img src={product?.imgUrl} alt={product?.name} />
@@ -53,6 +57,7 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
+       )}
       </div>
     </div>
   );

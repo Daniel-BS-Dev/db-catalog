@@ -31,7 +31,7 @@ const Catalog = () => {
         setPage(response.data);
       })
       .finally(() => {
-        setIsLoader(true);
+        setIsLoader(false);
       });
   }, []);
 
