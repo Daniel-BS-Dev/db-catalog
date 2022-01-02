@@ -1,8 +1,32 @@
+@keyframes card {
+    0%{
+        transform: scale(1, 0);
+        transform-origin: top center;
+    }
+    25%{
+        transform: scale(1,1);
+        transform-origin: top center;
+    }
+    75%{
+        transform: scale(1,1);
+        transform-origin: top center;
+    }
+    76%{
+        transform: scale(1,1);
+        transform-origin:bottom center ;
+    }
+    100%{
+        transform: scale(1,0);
+        transform-origin: bottom center;
+    }
+  }
+
 .catalog-container{
     display: flex;
     flex-direction: column;
     padding: 0px 20px 15px 20px;
-    
+    min-height: calc(100vh - 150px );
+
 }
 
 .catalog-product{
@@ -17,6 +41,15 @@
     align-items: center;
     margin: 40px 0px 35px 0px;
     
+}
+
+.catalog-loader{
+    min-height: calc(90vh - 200px );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: card 5.5s infinite linear;
+     
 }
 
 @media screen and (min-width:576px) {
