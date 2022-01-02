@@ -19,7 +19,7 @@ public class ProductDTO implements Serializable {
 	
 	private Long id;
 	
-	@Size(min = 2, max=60, message= "Nome tem que ser nno minimo 2 caracter")
+	@Size(min = 2, max=60, message= "Nome tem que ser no minimo 2 a 60 caracteres")
 	@NotBlank(message = "Campo Obrigatorio")
 	private String name;
 	
@@ -29,7 +29,7 @@ public class ProductDTO implements Serializable {
 	@PastOrPresent(message = "Data não pode ser futura")
 	private Instant date;
 	
-	@Size(min = 5, max=200, message="deve ter entre 2 a 30 caracteres")
+	@Size(min = 5, max=2500, message="deve ter entre 2 a 2500 caracteres")
 	@NotBlank(message="campo obrigatorio")
 	private String description;
 	private String imgUrl;
