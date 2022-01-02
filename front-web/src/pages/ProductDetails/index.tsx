@@ -1,6 +1,7 @@
 import { ReactComponent as Arrow } from '../../assets/image/Seta.svg';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
 import { BASE_URL } from 'util/request';
 import Price from 'components/Price';
@@ -29,9 +30,11 @@ const ProductDetails = () => {
   return (
     <div className="productDetails-container">
       <div className="productDetails-content">
-      <div className="productDetails-previous">
-          <Arrow className="productDetails-arrow" />
-          <h2>voltar</h2>
+        <div className="productDetails-previous">
+          <Link to="/products" className='productDetails-link'>
+            <Arrow className="productDetails-arrow" />
+            <h2>voltar</h2>
+          </Link>
         </div>
         <div className="row">
           <div className="productDetails-container-info col-xl-6">

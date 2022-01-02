@@ -5,6 +5,7 @@ import CardProduct from 'pages/CardProduct';
 import { useEffect, useState } from 'react';
 import { Product } from 'types/product';
 import { BASE_URL } from 'util/request';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './styles.scss';
 
@@ -25,7 +26,6 @@ const Catalog = () => {
     //como eu já coloquei o get no AxiosParams eu não preciso colocar aqui
     axios(params).then((response) => {
       setPage(response.data);
-
     });
   }, []);
 
@@ -33,12 +33,12 @@ const Catalog = () => {
     <div className="catalog-container">
       <div className="row catalog-content">
         {page?.content.map((product) => (
-          <div
+          <Link to={`products/${product.id}`}
             className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product"
             key={product.id}
           >
             <CardProduct product={product} />
-          </div>
+          </Link>
         ))}
       </div>
       <div className="catalog-pagination">

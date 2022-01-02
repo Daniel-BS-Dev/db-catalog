@@ -15,8 +15,8 @@ const DRoutes = () => (
       <Route path='/' element={<Home />} />
       <Route path="/admin" element={<Navigate replace to="/admin/products" />} />
       <Route path='/admin/*' element={<Admin/>} />
-      <Route path='/catalog' element={<Catalog />} />
-      <Route path='/products/:id' element={<ProductDetails />} />
+      <Route path='/products' element={<Catalog />} />
+      <Route path='products/products/:id' element={<ProductDetails />} />
     </Routes>
     <Footer />
   </Router>
