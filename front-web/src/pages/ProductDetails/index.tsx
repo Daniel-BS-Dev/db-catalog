@@ -29,7 +29,7 @@ const ProductDetails = () => {
   return (
     <div className="productDetails-container">
       <div className="productDetails-content">
-        <div className="productDetails-previous">
+      <div className="productDetails-previous">
           <Arrow className="productDetails-arrow" />
           <h2>voltar</h2>
         </div>
