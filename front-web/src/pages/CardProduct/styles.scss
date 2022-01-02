@@ -9,14 +9,17 @@
   display: flex;
   border-radius: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .cardproduct-image {
-  width: 200px;
-  height: 150px;
-  padding-right: 15px;
+  width: 150px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-right: 1px solid #e1e1e1;
+  padding-right: 10px;
 
   img {
     width: 100%;
@@ -25,12 +28,15 @@
 }
 
 .cardProduct-description {
+  width: 220px;
+  height: 100%;
   padding-left: 10px;
   text-align: justify;
+  
 
   h6 {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 22px;
     letter-spacing: -0.015em;
     color: #263238;
@@ -42,7 +48,12 @@
   }
 }
 
-@media screen and (min-width:576px) {
+@media screen and (min-width:620px) {
+  .cardProduct-container {
+    min-width: 200px;
+    height: 300px;
+  }
+
  .cardProduct-content {
     display: flex;
     justify-content: center;
@@ -66,11 +77,13 @@
   }
 
   .cardProduct-description {
+    width: 100%;
     padding-left: 0px;
     text-align: justify;
+    border-right: none;
+    border-top: 1px solid #e1e1e1;
 
     h6 {
-      border-top: 1px solid #e1e1e1;
       padding-top: 10px;
       
     }

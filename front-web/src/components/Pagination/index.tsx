@@ -12,7 +12,6 @@ const Pagination = () => {
                <button>02</button>
                <button>03</button>
                <button>04</button>
-               <button>05</button>
                <button>....</button>
                <button>10</button>
            </div>
