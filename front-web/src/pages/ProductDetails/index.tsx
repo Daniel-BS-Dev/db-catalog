@@ -26,8 +26,10 @@ const ProductDetails = () => {
       .then((response) => {
         setProduct(response.data);
       })
-      .catch((Error) => alert(Error));
-      setIsLaoder(true);
+      .catch((Error) => alert(Error))
+      .finally(() => {
+        setIsLaoder(false);
+      })
   }, [id]);
 
   return (

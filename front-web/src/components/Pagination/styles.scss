@@ -13,35 +13,36 @@
 
 .pagination-number {
   display: flex;
-
-  button {
     border-radius: 50%;
     background: #e1e1e1;
     margin-right: 5px;
     padding: 9px;
-
     font-weight: bold;
     font-size: 16px;
     line-height: 22px;
     text-align: center;
     letter-spacing: -0.015em;
     color: #ffffff;
-  }
+  
 
-  .activeButton {
-    background-color: #407bff;
-  }
+}
+
+.activeNumber {
+  cursor: pointer;
+  background-color: #407bff;
 }
 
 .pagination-arrow-next {
   padding-left: 10px;
 }
 
-.disactive {
+.inactiveArrow {
   color: #e1e1e1;
+  pointer-events: none;
 }
 
-.active {
+.activeArrow {
+  cursor: pointer;
   color: #407bff;
 }
 

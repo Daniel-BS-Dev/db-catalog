@@ -137,9 +137,10 @@
 }
 
 .productdetails-isLoader {
-  padding-top: 50%;
-  padding-bottom: 80%;
-  text-align: center;
+ min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation: arrowDown 1s linear infinite;
 }
 

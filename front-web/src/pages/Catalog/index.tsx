@@ -13,6 +13,7 @@ const Catalog = () => {
   //SpringPage -> foi o tipo que eu criei no meu vendor
   const [page, setPage] = useState<SpringPage<Product>>();
   const [isLoader, setIsLoader] = useState(false);
+  const [isActive, setIsActive] = useState(0);
 
   useEffect(() => {
     //AxiosParams -> foi outor tipo que eu criei no vendor
@@ -20,8 +21,8 @@ const Catalog = () => {
       method: 'GET',
       url: `${BASE_URL}/products`,
       params: {
-        page: 0,
-        size: 12,
+        page: isActive,
+        linePerPage: 10,
       },
     };
     //como eu já coloquei o get no AxiosParams eu não preciso colocar aqui
@@ -33,13 +34,13 @@ const Catalog = () => {
       .finally(() => {
         setIsLoader(false);
       });
-  }, []);
+  }, [isActive]);
 
   return (
     <div className="catalog-container">
       <div className="row catalog-content">
         {isLoader ? (
-          <h1 className='catalog-loader'>Carregando...</h1>
+          <h1 className="catalog-loader">Carregando...</h1>
         ) : (
           page?.content.map((product) => (
             <Link
@@ -52,7 +53,13 @@ const Catalog = () => {
           ))
         )}
         <div className="catalog-pagination">
-        <Pagination />
+          {page && (
+            <Pagination
+              totalPages={page?.totalPages}
+              pageIsActive={isActive}
+              onChange={(pageActive) => setIsActive(pageActive)}
+            />
+          )}
         </div>
       </div>
     </div>
