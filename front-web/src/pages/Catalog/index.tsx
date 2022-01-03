@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Product } from 'types/product';
 import { BASE_URL } from 'util/request';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import './styles.scss';
 
 const Catalog = () => {
@@ -16,10 +16,11 @@ const Catalog = () => {
   const [isActive, setIsActive] = useState(0);
 
   useEffect(() => {
-    //AxiosParams -> foi outor tipo que eu criei no vendor
-    const params: AxiosParams = {
+    //AxiosRequestConfig e um tipo do axios
+    const params: AxiosRequestConfig = {
       method: 'GET',
-      url: `${BASE_URL}/products`,
+      baseURL: BASE_URL,
+      url: "/products",
       params: {
         page: isActive,
         linePerPage: 10,
@@ -44,7 +45,7 @@ const Catalog = () => {
         ) : (
           page?.content.map((product) => (
             <Link
-              to={`products/${product.id}`}
+              to={`/products/${product.id}`}
               className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product"
               key={product.id}
             >
