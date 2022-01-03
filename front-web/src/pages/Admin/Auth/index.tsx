@@ -8,14 +8,16 @@ import './styles.scss';
 const Auth = () => {
   return (
     <div className="auth-container">
-      <div className="auth-contenent">
+      <div className="auth-content">
         <div className="auth-text">
-          <h1>Divulgue seus produtos no DS Catalog</h1>
+          <h1>Divulgue seus produtos no DB Catalog</h1>
           <p>
             Faça parte do nosso catálogo de divulgação e aumente a venda dos
             seus produtos.
           </p>
-          <AuthImage />
+          <div className="authImage">
+            <AuthImage />
+          </div>
         </div>
         <div className="auth-router">
           <Routes>
