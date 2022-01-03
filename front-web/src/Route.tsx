@@ -5,6 +5,7 @@ import Footer from "components/Footer";
 import Catalog from "./pages/Catalog";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
+import Auth from "pages/Admin/Auth";
 
 
 
@@ -13,6 +14,8 @@ const DRoutes = () => (
     <NavBar/>
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path="/admin/auth" element={<Navigate replace to="/admin/auth/login" />} />
+      <Route path='/admin/auth/*' element={<Auth/>} />
       <Route path="/admin" element={<Navigate replace to="/admin/products" />} />
       <Route path='/admin/*' element={<Admin/>} />
       <Route path='/products' element={<Catalog />} />
