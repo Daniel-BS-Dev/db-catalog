@@ -12,7 +12,7 @@ const Login = () => {
         </form>
         <span className="login-help">Esqueci a senha?</span>
         <div className="login-button">
-          <Button text="FAZER LOGIN" />
+          <Button text="LOGAR" />
         </div>
         <p className="login-fillOut">
           Não tem Cadastro? <span>CADASTRAR</span>
