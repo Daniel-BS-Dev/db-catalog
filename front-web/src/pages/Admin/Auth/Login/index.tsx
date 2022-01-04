@@ -43,7 +43,13 @@ const Login = () => {
             type="email"
             placeholder="Email"
             className="form-control"
-            {...register('username', { required: 'Campo obrigatório' })}
+            {...register('username', { 
+              required: 'Campo obrigatório',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Email inválido'
+              }
+            })}
           />
           <div className='invalid-feedback d-block login-error'>
             {// para aparecer e tenho que usar o display block na div
