@@ -33,7 +33,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-content">
         <h1>Login</h1>
-        {hasError && (
+        {hasError && ( //tratando erro com estado
           <div className="alert alert-danger">
             Erro ao efetuar login. Verifique os dados e tente novamente
           </div>
@@ -43,14 +43,24 @@ const Login = () => {
             type="email"
             placeholder="Email"
             className="form-control"
-            {...register('username', { required: true })}
+            {...register('username', { required: 'Campo obrigatório' })}
           />
+          <div className='invalid-feedback d-block login-error'>
+            {// para aparecer e tenho que usar o display block na div
+              errors.username?.message //pegando erro com o hook message e a mensagem do meu required
+            }
+          </div>
           <input
             type="password"
             placeholder="Senha"
             className="form-control login-input-password"
-            {...register('password', { required: true })}
+            {...register('password', { required: 'Campo obrigatório' })}
           />
+          <div className='invalid-feedback d-block login-error'>
+            {
+              errors.password?.message
+            }
+          </div>
           <p className="login-help">Esqueci a senha?</p>
           <div className="login-button">
             <Button text="LOGAR" />
