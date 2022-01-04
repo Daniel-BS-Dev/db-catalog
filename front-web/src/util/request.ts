@@ -34,3 +34,28 @@ export const requestBackendLogin = (loginData: LoginData) => {
     headers,
   });
 };
+
+//GUARDA O MEU TOKEN NO LOCAL STORE
+type Email = {
+    id: number,
+    authority: string
+}
+
+type LoginResponse ={
+    access_token: string,
+    token_type: string,
+    expires_in: number,
+    scope: string,
+    userFirstName: string,
+    userId: number,
+    email: Email[]
+}
+//guardar
+export const saveAuthData = (obj : LoginResponse) => {
+    localStorage.setItem('authData', JSON.stringify(obj)); //savando o token Json.. e pra tranformar o object em string
+}
+//obter os dados
+export const getAuthData = () => {
+    const str = localStorage.getItem('authData') ?? '';
+    return JSON.parse(str) as LoginResponse; // transformando em obj
+}
