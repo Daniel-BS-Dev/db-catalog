@@ -42,7 +42,7 @@ const Login = () => {
           <input
             type="email"
             placeholder="Email"
-            className="form-control"
+            className={`form-control ${errors.username ? 'is-invalid' : ''}`}
             {...register('username', { 
               required: 'Campo obrigatório',
               pattern: {
@@ -59,7 +59,7 @@ const Login = () => {
           <input
             type="password"
             placeholder="Senha"
-            className="form-control login-input-password"
+            className={`form-control login-input-password ${errors.password ? 'is-invalid' : ''}`}
             {...register('password', { required: 'Campo obrigatório' })}
           />
           <div className='invalid-feedback d-block login-error'>
