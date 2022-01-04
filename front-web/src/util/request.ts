@@ -17,11 +17,11 @@ export const requestBackendLogin = (loginData: LoginData) => {
   //cabeçalho header e content
   const headers = {
     'Content-Type': 'application/x-www-form-urlencoded', // o tipo que eu vou receber os dados pego no postman
-    Authorization: 'Basic' + window.btoa(CLIENT_ID + ':' + CLIENT_SECRET), // pegando o header authorization
+    Authorization: 'Basic ' + window.btoa(CLIENT_ID + ':' + CLIENT_SECRET), // pegando o header authorization
   };
 
   // corpo da requisição  email senha e gant_type
-  const data = qs.stringify({
+  const data = qs.stringify({// qs e pra transformar o codigo em urlencoded
     ...loginData, //email e senha
     grant_type: 'password',
   });
@@ -30,7 +30,7 @@ export const requestBackendLogin = (loginData: LoginData) => {
     method: 'POST',
     baseURL: BASE_URL,
     url: '/oauth/token',
-    data,
+    data, // não colequei o data e o headers pq e o mesmo nome
     headers,
   });
 };
