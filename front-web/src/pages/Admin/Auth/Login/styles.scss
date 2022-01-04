@@ -1,39 +1,24 @@
 .login-container {
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  padding: 70px 0px 90px 0px;
+  padding: 50px 20px 70px 20px;
+  text-align: center;
 }
 
 .login-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
   h1 {
     font-weight: normal;
+    margin-bottom: 50px;
     font-size: 30px;
     line-height: 41px;
-    letter-spacing: -0.015em;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    letter-spacing: -0.015em;
     color: #263238;
   }
 
-  form {
-    width: 90%;
-  }
-
-  .last-child {
-    margin-top: 30px;
-  }
-
   input {
-    width: 100%;
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
     padding: 15px;
-    background-color: #ffffff;
   }
 
   input::placeholder {
@@ -43,8 +28,14 @@
     color: #9e9e9e;
   }
 
+  .login-input-password {
+    margin-top: 30px;
+  }
+
   .login-help {
     width: 90%;
+    padding-left: 5px;
+    text-align: left;
     margin-top: 15px;
     margin-bottom: 80px;
     font-size: 16px;
@@ -55,6 +46,7 @@
 
   .login-fillOut {
     margin-top: 20px;
+    font-weight: bold;
     font-size: 16px;
     line-height: 22px;
     text-align: center;
@@ -65,7 +57,6 @@
       font-weight: bold;
       font-size: 16px;
       line-height: 22px;
-      text-align: center;
       letter-spacing: -0.015em;
       text-decoration-line: underline;
       color: #407bff;
@@ -73,58 +64,58 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .login-button {
-    .button-container {
-      width: 500px;
-
-      button {
-        width: 100%;
-        height: 60px;
-      }
+@media screen and (min-width: 600px) {
+  .login-content {
+    h1 {
+      margin-bottom: 80px;
+      margin-top: 50px;
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
   .login-container {
-    width: 500px;
-    height: 100%;
-    padding: 100px 0px 90px 0px;
-    box-sizing: border-box;
+    padding: 80px 40px 90px 40px;
   }
 
   .login-content {
-    width: 100%;
-    display: flex;
-
     h1 {
+      margin-bottom: 70px;
       font-size: 48px;
       line-height: 65px;
-      margin-bottom: 80px;
     }
 
-    .login-help {
+    input::placeholder {
       font-size: 18px;
       line-height: 25px;
     }
 
-    .login-button {
-      .button-container {
-        width: 450px;
+    .login-input-password {
+      margin-top: 30px;
+    }
 
-        button {
-          width: 100%;
-          height: 70px;
-          font-size: 24px;
-          line-height: 33px;
-        }
-      }
+    .login-help {
+      margin-bottom: 100px;
+      font-size: 18px;
+      line-height: 25px;
     }
 
     .login-fillOut {
       margin-top: 30px;
-    
+      font-size: 18px;
+      line-height: 25px;
+
+      span {
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+    .login-button {
+      .button-container {
+        button {
+          width: 400px;
+        }
+      }
     }
   }
 }
