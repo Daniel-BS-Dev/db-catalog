@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
+
 const AdminUsernames = () => {
     return(
-      <h1>user</h1>
+      <Link to = "/admin/auth">
+<h1>user</h1>
+      </Link>
+      
     );
 }
 
