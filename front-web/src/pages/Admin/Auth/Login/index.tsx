@@ -1,6 +1,5 @@
 import Button from 'components/Button';
 import { useForm } from 'react-hook-form';
-import { EphemeralKeyInfo } from 'tls';
 import './styles.scss';
 
 type FormData = {
@@ -12,7 +11,11 @@ const Login = () => {
   const {register,handleSubmit, formState: { errors } } = useForm<FormData>();
 
   const onSubmit = (formData: FormData ) => {
-   console.log(formData);
+   requestBackendLogin(formData)
+   .then(reponse => {
+     console.log('SUCCESS' response);
+   })
+   .catch(error => console.log(error))
   }
 
   return (
