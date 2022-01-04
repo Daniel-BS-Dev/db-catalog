@@ -1,13 +1,13 @@
-import { AxiosParams } from 'types/vendor/axios';
+import { BASE_URL, requestBackend } from 'util/request';
 import { SpringPage } from 'types/vendor/spring';
 import Pagination from 'components/Pagination';
 import CardProduct from 'pages/CardProduct';
 import { useEffect, useState } from 'react';
+import { AxiosRequestConfig } from 'axios';
 import { Product } from 'types/product';
-import { BASE_URL } from 'util/request';
 import { Link } from 'react-router-dom';
-import axios, { AxiosRequestConfig } from 'axios';
 import './styles.scss';
+
 
 const Catalog = () => {
   //SpringPage -> foi o tipo que eu criei no meu vendor
@@ -19,7 +19,6 @@ const Catalog = () => {
     //AxiosRequestConfig e um tipo do axios
     const params: AxiosRequestConfig = {
       method: 'GET',
-      baseURL: BASE_URL,
       url: "/products",
       params: {
         page: isActive,
@@ -28,7 +27,7 @@ const Catalog = () => {
     };
     //como eu já coloquei o get no AxiosParams eu não preciso colocar aqui
     setIsLoader(true);
-    axios(params)
+    requestBackend(params)
       .then((response) => {
         setPage(response.data);
       })

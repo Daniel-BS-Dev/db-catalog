@@ -1,8 +1,15 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
+import { Category } from 'types/category';
 
 export const BASE_URL =
   process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
+
+
+//requisição para obter os atibutos todos tipos
+export const requestBackend = (config: AxiosRequestConfig) => {
+    return axios ({...config, baseURL: BASE_URL});
+}
 
 //FAZENDO REQUISIÇÃO DE LOGIN
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'dscatalog';
@@ -36,11 +43,6 @@ export const requestBackendLogin = (loginData: LoginData) => {
 };
 
 //GUARDA O MEU TOKEN NO LOCAL STORE
-type Email = {
-    id: number,
-    authority: string
-}
-
 type LoginResponse ={
     access_token: string,
     token_type: string,
@@ -48,7 +50,7 @@ type LoginResponse ={
     scope: string,
     userFirstName: string,
     userId: number,
-    email: Email[]
+    email: Category[]
 }
 //guardar
 export const saveAuthData = (obj : LoginResponse) => {
