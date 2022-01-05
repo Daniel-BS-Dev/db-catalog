@@ -2,10 +2,12 @@ import './styles.scss';
 import { ReactComponent as Img } from '../../assets/image/bighome.svg';
 import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
+import { getTokenData } from 'util/request';
 
 const Home = () => {
   return (
     <div className="home-container">
+       <h1>{getTokenData()?.user_name}</h1>
       <div className="home-content">
         <div className="home-text">
           <h1>

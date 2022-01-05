@@ -3,6 +3,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { Category } from 'types/category';
 import history from './history';
 import qs from 'qs';
+import jwtDecode from 'jwt-decode';
 
 export const BASE_URL =
   process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
@@ -72,14 +73,13 @@ export const getAuthData = () => {
 };
 
 //AXIOS INTERCEPTORS PARA DIRECIONAR BASEADO NO ERRO
-// Add a request interceptor
 axios.interceptors.request.use(
   function (config) {
-    // Do something before request is sent
+    
     return config;
   },
   function (error) {
-    // Do something with request error
+  
     return Promise.reject(error);
   }
 );
@@ -97,8 +97,28 @@ axios.interceptors.response.use(
     } 
 
     if (error.response.status === 403) {
+      history.push("/products");
+      document.location.reload();
       console.log('login não atorizado');
     }
     return Promise.reject(error);
   }
 );
+
+//pegando informações do token
+type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';
+
+type TokenData = {
+  exp: number,
+  user_name:string,
+  authorities: Role[];
+}
+
+export const getTokenData = () : TokenData | undefined => {
+  try{
+    return jwtDecode(getAuthData().access_token);
+  }
+  catch(error){
+    return undefined;
+  }
+}
