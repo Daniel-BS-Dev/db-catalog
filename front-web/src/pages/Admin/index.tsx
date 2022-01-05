@@ -5,7 +5,6 @@ import NavBarAdmin from './NavBarAdmin';
 import AdminUsers from './AdminUsers';
 import './styles.scss';
 
-
 const Admin = () => {
   return (
     <div className="admin-container">

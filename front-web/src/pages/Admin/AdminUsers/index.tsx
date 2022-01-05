@@ -1,15 +1,15 @@
-import { AxiosRequestConfig } from 'axios';
-import { useEffect, useState } from 'react';
-import { User } from 'types/user';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/request';
+import { useEffect, useState } from 'react';
+import { AxiosRequestConfig } from 'axios';
+import { User } from 'types/user';
 
- 
+
 const AdminUsers = () => {
-  const [page, setPage] = useState<SpringPage<User>>();
- 
+ const [page, setPage] = useState<User[]>([]);
+
   useEffect(() => {
-    const params : AxiosRequestConfig = {
+    const params: AxiosRequestConfig = {
       url: '/users',
       withCredentials: true,
       params: {
@@ -17,21 +17,20 @@ const AdminUsers = () => {
         size: 12,
       },
     };
- 
-    requestBackend(params)
-    .then((response) => {
+
+    requestBackend(params).then((response) => {
       setPage(response.data);
+      
     });
   }, []);
- 
+
   return (
     <div>
-      {page?.content.map((item) => (
-        <p key={item.id}>{item.email}</p>
-      ))}
+    {page.map(item => (
+       <h1 key={item.id}>{item.email}</h1>
+     ))}
     </div>
   );
 };
- 
-export default AdminUsers;
 
+export default AdminUsers;
