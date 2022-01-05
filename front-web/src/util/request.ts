@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import axios, { AxiosRequestConfig } from 'axios';
-import qs from 'qs';
 import { Category } from 'types/category';
+import history from './history';
+import qs from 'qs';
 
 export const BASE_URL =
   process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
@@ -65,6 +67,38 @@ export const saveAuthData = (obj: LoginResponse) => {
 };
 //obter os dados
 export const getAuthData = () => {
-  const str = localStorage.getItem('authData') ?? '';
+  const str = localStorage.getItem('authData') ?? '{}';
   return JSON.parse(str) as LoginResponse; // transformando em obj
 };
+
+//AXIOS INTERCEPTORS PARA DIRECIONAR BASEADO NO ERRO
+// Add a request interceptor
+axios.interceptors.request.use(
+  function (config) {
+    // Do something before request is sent
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor
+axios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    if (error.response.status === 401) {
+      history.push("/admin/auth");
+      document.location.reload();
+      console.log('voce não esta logado');
+    } 
+
+    if (error.response.status === 403) {
+      console.log('login não atorizado');
+    }
+    return Promise.reject(error);
+  }
+);

@@ -1,8 +1,8 @@
+import { requestBackendLogin, saveAuthData } from 'util/request';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import Button from 'components/Button';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { getAuthData, requestBackendLogin, saveAuthData } from 'util/request';
 import './styles.scss';
 
 type FormData = {
@@ -19,9 +19,7 @@ const Login = () => {
     requestBackendLogin(formData)
       .then((response) => {
         saveAuthData(response.data); //salvando o token
-        console.log('Token gerado: ', getAuthData().access_token);
         setHasError(false);
-        console.log('SUCCESS', response);
         navigate('/admin');
       })
       .catch((error) => {

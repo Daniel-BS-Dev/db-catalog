@@ -23,6 +23,7 @@ const Pagination = ({ totalPages, pageIsActive, onChange }: Props) => {
       </div>
       {items.map((item) => (
         <div
+          key={item}
           className={`pagination-number ${
             item === pageIsActive ? 'activeNumber' : ''
           }`}
