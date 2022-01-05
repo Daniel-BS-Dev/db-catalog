@@ -1,6 +1,7 @@
 import Button from 'components/Button';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { getAuthData, requestBackendLogin, saveAuthData } from 'util/request';
 import './styles.scss';
 
@@ -12,6 +13,7 @@ type FormData = {
 const Login = () => {
   const {register, handleSubmit, formState: { errors }} = useForm<FormData>();
   const [hasError, setHasError] = useState(false);
+  const navigate = useNavigate();
 
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
@@ -20,6 +22,7 @@ const Login = () => {
         console.log('Token gerado: ', getAuthData().access_token);
         setHasError(false);
         console.log('SUCCESS', response);
+        navigate('/admin');
       })
       .catch((error) => {
         setHasError(true);
