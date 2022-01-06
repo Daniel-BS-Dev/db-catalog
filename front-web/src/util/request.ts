@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import axios, { AxiosRequestConfig } from 'axios';
 import { Category } from 'types/category';
 import jwtDecode from 'jwt-decode';
@@ -5,8 +6,7 @@ import history from './history';
 import qs from 'qs';
 
 
-export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
+export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
 
 //requisição para obter os atibutos todos tipos
 export const requestBackend = (config: AxiosRequestConfig) => {
@@ -104,7 +104,7 @@ axios.interceptors.response.use(
     if (error.response.status === 403) {
       history.push("/products");
       document.location.reload();
-      console.log('login não atorizado');
+      
     }
     return Promise.reject(error);
   }

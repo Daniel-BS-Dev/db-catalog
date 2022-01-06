@@ -1,9 +1,10 @@
-import { requestBackendLogin, saveAuthData } from 'util/request';
+import { getTokenData, requestBackendLogin, saveAuthData } from 'util/request';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Button from 'components/Button';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './styles.scss';
+import { AuthContext } from 'AuthContext';
 
 type FormData = {
   username: string;
@@ -15,11 +16,18 @@ const Login = () => {
   const [hasError, setHasError] = useState(false);
   const navigate = useNavigate();
 
+  //estado para comunicação com o nav
+  const { authContextData, setAuthContextData } = useContext(AuthContext);
+
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
         saveAuthData(response.data); //salvando o token
         setHasError(false);
+        setAuthContextData({
+          isAuthenticated: true,
+          token: getTokenData(),
+        });
         navigate('/admin');
       })
       .catch((error) => {

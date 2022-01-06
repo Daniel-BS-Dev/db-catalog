@@ -1,46 +1,40 @@
-import {
-  getTokenData,
-  isAuthenticated,
-  removeToken,
-  TokenData,
-} from 'util/request';
-import { Link, NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {getTokenData, isAuthenticated, removeToken} from 'util/request';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
 import 'bootstrap/js/src/collapse.js';
 import history from 'util/history';
 import './styles.scss';
+import { AuthContext } from 'AuthContext';
 
-type Authenticated = {
-  isAuthenticated: boolean;
-  token?: TokenData;
-};
 
 const NavBar = () => {
-  const [authData, setAuthData] = useState<Authenticated>({
-    isAuthenticated: false,
-  });
-
+ 
+  // criando estado para comunicação
+  const { authContextData, setAuthContextData } = useContext(AuthContext);
+  const navigate = useNavigate();
+  
   useEffect(() => {
     if (isAuthenticated()) {
-      setAuthData({
+      setAuthContextData({
         isAuthenticated: true,
         token: getTokenData(),
       });
     } else {
-      setAuthData({
+      setAuthContextData({
         isAuthenticated: false,
       });
     }
-  }, []);
+  }, [authContextData]);
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     removeToken();
-    setAuthData({
+    setAuthContextData({
       isAuthenticated: false,
     });
-
-    history.replace('/');
+    
+    navigate('/');
+    
   }
 
   return (
@@ -83,15 +77,15 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="nav-login-logout">
-          {authData.isAuthenticated ? (
+          {authContextData.isAuthenticated ? (
             <>
-              <span>{authData.token?.user_name}</span>
-              <Link className="nav-logout" to="/" onClick={handleClick}>
+              <span>{authContextData.token?.user_name}</span>
+              <Link to="#logout" className="nav-logout" onClick={handleClick}>
                 Logout
               </Link>
             </>
           ) : (
-            <Link className="nav-login" to="/admin/auth">Login</Link>
+            <Link to="/admin/auth" className="nav-login" >Login</Link>
           )}
         </div>
       </div>
