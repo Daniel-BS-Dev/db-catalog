@@ -7,7 +7,6 @@ import { getTokenData, isAuthenticated } from 'util/request';
 const Home = () => {
   return (
     <div className="home-container">
-       <h1>{isAuthenticated() ? 'isAuthenticated' : 'isNotAuthenticated'}</h1>
       <div className="home-content">
         <div className="home-text">
           <h1>
