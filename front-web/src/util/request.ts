@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import axios, { AxiosRequestConfig } from 'axios';
 import { Category } from 'types/category';
+import jwtDecode from 'jwt-decode';
 import history from './history';
 import qs from 'qs';
-import jwtDecode from 'jwt-decode';
+
 
 export const BASE_URL =
   process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
@@ -72,6 +72,11 @@ export const getAuthData = () => {
   return JSON.parse(str) as LoginResponse; // transformando em obj
 };
 
+//excluindo o token
+export const removeToken = () => {
+  return localStorage.removeItem('authData');
+}
+
 //AXIOS INTERCEPTORS PARA DIRECIONAR BASEADO NO ERRO
 axios.interceptors.request.use(
   function (config) {
@@ -108,7 +113,7 @@ axios.interceptors.response.use(
 //pegando informações do token
 type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';
 
-type TokenData = {
+export type TokenData = {
   exp: number,
   user_name:string,
   authorities: Role[];
