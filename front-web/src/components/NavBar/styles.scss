@@ -10,8 +10,8 @@
   letter-spacing: -0.015em;
   color: #ffffff;
 
-  .nav-logo-text:hover{
-    color:#000;
+  .nav-logo-text:hover {
+    color: #000;
   }
 }
 
@@ -36,5 +36,30 @@
   .active {
     font-weight: bold;
     color: #ffffff;
+  }
+}
+
+.nav-login-logout {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .nav-login-logout {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    margin-right: 20px;
+    color: #ffffff;
+
+    span {
+      padding-top: 1px;
+      font-size: 14px;
+    }
+
+    .nav-login, .nav-logout{
+      font-size: 18px;
+      font-weight: bolder;
+      text-transform: uppercase;
+    }
   }
 }
