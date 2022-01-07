@@ -1,12 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import axios, { AxiosRequestConfig } from 'axios';
 import { Category } from 'types/category';
 import jwtDecode from 'jwt-decode';
 import history from './history';
 import qs from 'qs';
 
-
-export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
+export const BASE_URL =
+  process.env.REACT_APP_BACKEND_URL ?? 'https://dbcatalog1.herokuapp.com';
 
 //requisição para obter os atibutos todos tipos
 export const requestBackend = (config: AxiosRequestConfig) => {
@@ -75,16 +74,14 @@ export const getAuthData = () => {
 //excluindo o token
 export const removeToken = () => {
   return localStorage.removeItem('authData');
-}
+};
 
 //AXIOS INTERCEPTORS PARA DIRECIONAR BASEADO NO ERRO
 axios.interceptors.request.use(
   function (config) {
-    
     return config;
   },
   function (error) {
-  
     return Promise.reject(error);
   }
 );
@@ -96,15 +93,14 @@ axios.interceptors.response.use(
   },
   function (error) {
     if (error.response.status === 401) {
-      history.push("/admin/auth");
-      document.location.reload();
-      console.log('voce não esta logado');
-    } 
-
-    if (error.response.status === 403) {
-      history.push("/products");
+      history.push('/admin/auth');
       document.location.reload();
       
+    }
+
+    if (error.response.status === 403) {
+      history.push('/products');
+      document.location.reload();
     }
     return Promise.reject(error);
   }
@@ -114,23 +110,37 @@ axios.interceptors.response.use(
 type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';
 
 export type TokenData = {
-  exp: number,
-  user_name:string,
+  exp: number;
+  user_name: string;
   authorities: Role[];
-}
+};
 
-export const getTokenData = () : TokenData | undefined => {
-  try{
+export const getTokenData = (): TokenData | undefined => {
+  try {
     return jwtDecode(getAuthData().access_token);
-  }
-  catch(error){
+  } catch (error) {
     return undefined;
   }
-}
+};
 
 //ESTA AUTENTICADO
-export const isAuthenticated = () : boolean => {
+export const isAuthenticated = (): boolean => {
   const tokenData = getTokenData();
 
-  return (tokenData && tokenData.exp * 1000 > Date.now()) ? true : false;
-}
+  return tokenData && tokenData.exp * 1000 > Date.now() ? true : false;
+};
+
+//VERIFICANDO SE TEM ROLE
+export const hasAnyRoles = (role: Role[]): boolean => {
+  if (role.length === 0) {
+    return true;
+  }
+
+  const tokenData = getTokenData();
+
+  if (tokenData !== undefined) {
+    return role.some((roles) => tokenData.authorities.includes(roles));
+  }
+
+  return false;
+};
