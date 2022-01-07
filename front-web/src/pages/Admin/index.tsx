@@ -15,10 +15,8 @@ const Admin = () => {
       <NavBarAdmin />
       <div className="admin-links">
         <Routes>
-          <Route
-            path="/products"
-            element={auth ? <AdminProducts /> : redirect}
-          />
+          <Route path="/products" element={<Navigate replace to="/admin/products/list" />} />
+          <Route path="/products/*" element={auth ? <AdminProducts /> : redirect}/>
           <Route
             path="/categories"
             element={auth ? <AdminCategories /> : redirect}
