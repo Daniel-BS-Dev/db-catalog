@@ -1,13 +1,12 @@
-import './styles.scss';
 import { ReactComponent as Img } from '../../assets/image/bighome.svg';
 import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
-import { getTokenData, hasAnyRoles, isAuthenticated } from 'util/request';
+import './styles.scss';
+
 
 const Home = () => {
   return (
     <div className="home-container">
-      <h1>resulta = {hasAnyRoles(['ROLE_ADMIN', 'ROLE_OPERATOR']) ? 'sim' : 'nao'}</h1>
       <div className="home-content">
         <div className="home-text">
           <h1>

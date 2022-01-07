@@ -1,11 +1,10 @@
+import { hasAnyRoles, isAuthenticated } from 'util/request';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AdminCategories from './AdminCategories';
+import AdminProducts from './AdminProducts';
 import NavBarAdmin from './NavBarAdmin';
 import AdminUsers from './AdminUsers';
 import './styles.scss';
-import AdminProducts from './AdminProducts';
-import { isAuthenticated } from 'util/request';
-
 
 const Admin = () => {
   const auth = isAuthenticated();
