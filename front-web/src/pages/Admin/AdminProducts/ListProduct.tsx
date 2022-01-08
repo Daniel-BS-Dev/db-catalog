@@ -19,13 +19,10 @@ const ListProduct = () => {
         id: 2,
         name: 'casa',
       },
+      
       {
         id: 3,
-        name: 'electrodomesticos',
-      },
-      {
-        id: 3,
-        name: 'electrodomesticos',
+        name: 'Pc',
       },
     ],
   };

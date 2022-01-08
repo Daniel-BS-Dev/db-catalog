@@ -29,8 +29,8 @@ const CardProduct = ({ product, categories }: Props) => {
           </div>
         </div>
         <div className="button-card-product">
-          <button className="btn btn-secondary">EDITAR</button>
-          <button className="btn btn-danger">EXCLUIR</button>
+        <button className="btn btn-outline-danger">EXCLUIR</button>
+          <button className="btn btn-outline-secondary">EDITAR</button>
         </div>
       </div>
     </div>
