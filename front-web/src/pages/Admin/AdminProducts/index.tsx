@@ -7,8 +7,8 @@ const AdminProducts = () => {
     return(
     <div className='adminproducts-container'>
       <Routes>
-          <Route path="/list" element={<ListProduct /> } />
-          <Route path="/form" element={<NewProduct />} />
+          <Route path="/" element={<ListProduct />} />
+          <Route path="/:productId" element={<NewProduct />} />
       </Routes>
     </div>
     );
