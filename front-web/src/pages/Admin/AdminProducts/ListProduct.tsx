@@ -15,6 +15,18 @@ const ListProduct = () => {
         id: 1,
         name: 'tv',
       },
+      {
+        id: 2,
+        name: 'casa',
+      },
+      {
+        id: 3,
+        name: 'electrodomesticos',
+      },
+      {
+        id: 3,
+        name: 'electrodomesticos',
+      },
     ],
   };
 ///create casa com /:productId
@@ -27,9 +39,17 @@ const ListProduct = () => {
       </Link>
       <div className="list-product-search">Search Product</div>
       <div className="container-list-product-card">
-        <CardProduct product={product} />
-        <CardProduct product={product} />
-        <CardProduct product={product} />
+        <CardProduct 
+        product={product} 
+        categories = {product.categories}
+        />
+        <CardProduct product={product} 
+        categories = {product.categories}
+        />
+        <CardProduct 
+        product={product} 
+        categories = {product.categories}
+        />
       </div>
     </>
   );
