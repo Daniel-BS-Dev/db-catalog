@@ -19,34 +19,28 @@ const ListProduct = () => {
         id: 2,
         name: 'casa',
       },
-      
+
       {
         id: 3,
         name: 'Pc',
       },
     ],
   };
-///create casa com /:productId
+  ///create casa com /:productId
   return (
     <>
-      <Link to="/admin/products/create"> 
-        <button className="list-product-button btn btn-primary text-white">
-          ADICIONAR
-        </button>
-      </Link>
-      <div className="list-product-search">Search Product</div>
+      <div className="list-product-add">
+        <Link to="/admin/products/create">
+          <button className="list-product-button btn btn-primary text-white">
+            ADICIONAR
+          </button>
+        </Link>
+        <div className="list-product-search">Search Product</div>
+      </div>
       <div className="container-list-product-card">
-        <CardProduct 
-        product={product} 
-        categories = {product.categories}
-        />
-        <CardProduct product={product} 
-        categories = {product.categories}
-        />
-        <CardProduct 
-        product={product} 
-        categories = {product.categories}
-        />
+        <CardProduct product={product} categories={product.categories} />
+        <CardProduct product={product} categories={product.categories} />
+        <CardProduct product={product} categories={product.categories} />
       </div>
     </>
   );
