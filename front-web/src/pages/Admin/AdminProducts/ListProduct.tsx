@@ -1,32 +1,34 @@
+import { AxiosRequestConfig } from 'axios';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Product } from 'types/product';
+import { SpringPage } from 'types/vendor/spring';
+import { requestBackend } from 'util/request';
 import CardProduct from '../CardProduct';
 
 const ListProduct = () => {
-  const product = {
-    id: 1,
-    name: 'Computador Desktop - Intel Core i7',
-    price: 2500.0,
-    date: '12/34/43',
-    description: 'otimo produto',
-    imgUrl:
-      'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/3-big.jpg',
-    categories: [
-      {
-        id: 1,
-        name: 'tv',
-      },
-      {
-        id: 2,
-        name: 'casa',
-      },
+  const [product, setProduct] = useState<SpringPage<Product>>();
+  const [isLoader, setIsLoader] = useState(false);
 
-      {
-        id: 3,
-        name: 'Pc',
+  useEffect(() => {
+    const params: AxiosRequestConfig = {
+      method: 'GET',
+      url: '/products',
+      params: {
+        page: 0,
+        linePerPage: 100,
       },
-    ],
-  };
-  ///create casa com /:productId
+    };
+    setIsLoader(true);
+    requestBackend(params)
+      .then((response) => {
+        setProduct(response.data);
+      })
+      .finally(() => {
+        setIsLoader(false);
+      });
+  }, []);
+
   return (
     <>
       <div className="list-product-add">
@@ -37,11 +39,12 @@ const ListProduct = () => {
         </Link>
         <div className="list-product-search">Search Product</div>
       </div>
-      <div className="container-list-product-card">
-        <CardProduct product={product} categories={product.categories} />
-        <CardProduct product={product} categories={product.categories} />
-        <CardProduct product={product} categories={product.categories} />
-      </div>
+
+      {isLoader ? (<h1>carregando...</h1>) : (product?.content.map((product) => (
+        <div className="container-list-product-card">
+          <CardProduct product={product} categories={product.categories} />
+        </div>
+      )))}
     </>
   );
 };
