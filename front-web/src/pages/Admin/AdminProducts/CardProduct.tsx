@@ -44,9 +44,9 @@ const CardProduct = ({ product, onDelete }: Props) => {
             <Price price={product.price} />
           </div>
           <div className="categories-card-product">
-            {product.categories.map(category => (
-                <Categorybadge name={category.name} key={category.id}/>
-            ))}
+          {product.categories.map(category => (
+          <Categorybadge name={category.name}/>
+          ))}
           </div>
         </div>
         <div className="button-card-product">
