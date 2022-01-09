@@ -17,12 +17,12 @@ const NewProduct = () => {
                        <input type='text' placeholder='Categoria'/>
                        <input type='number' placeholder='Preço'/>
                    </div>
-                   <div className='col-12 col-md-6'>
-                       <textarea rows={2}>Descição</textarea>
+                   <div className='col-12 col-md-6 description-new-product'>
+                       <textarea rows={2}>descrição</textarea>
                    </div>
                    <div className='buttons-new-product'>
-                      <button className='btn btn-danger'>Cancelar</button>
-                      <button className='btn btn-primary'>Salvar</button>
+                      <button className='btn btn-outline-danger'>Cancelar</button>
+                      <button className='btn btn-outline-primary'>Salvar</button>
                    </div>
                </div>
            </form>

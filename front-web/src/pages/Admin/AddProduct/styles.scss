@@ -13,7 +13,6 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-bottom: 30px;
 
   .previous-new-product {
     transform: rotate(180deg);
@@ -21,12 +20,21 @@
     margin-top: -8px;
     margin-right: 15px;
   }
+
+  h2 {
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    color: #263238;
+  }
 }
 
 .input-new-product {
   input {
     width: 100%;
-    margin-bottom: 30px;
+    height: 50px;
+    margin-top: 25px;
     border-radius: 10px;
   }
 
@@ -37,4 +45,24 @@
     letter-spacing: -0.015em;
     color: #9e9e9e;
   }
+}
+
+.description-new-product {
+  width: 100%;
+  margin-top: 30px;
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.015em;
+    color: #9e9e9e;
+    margin-bottom: 30px;
+  }
+}
+
+.buttons-new-product {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
