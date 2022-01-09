@@ -8,10 +8,10 @@ import Categorybadge from './CategoryCardProduct';
 
 type Props = {
   product: Product;
-  categories: Category[];
+  onDelete : () => void;
 };
 
-const CardProduct = ({ product, categories }: Props) => {
+const CardProduct = ({ product, onDelete }: Props) => {
 
   const handleDelete = (productId: number) => {
 
@@ -27,7 +27,7 @@ const CardProduct = ({ product, categories }: Props) => {
     
     requestBackend(config)
     .then(() => {
-      console.log(`Produto deletado${productId}`)
+     onDelete();
     })
   
   }
@@ -44,10 +44,8 @@ const CardProduct = ({ product, categories }: Props) => {
             <Price price={product.price} />
           </div>
           <div className="categories-card-product">
-            {categories.map((category) => (
-              <div key={category.id}>
-                <Categorybadge name={category.name} />
-              </div>
+            {product.categories.map(category => (
+                <Categorybadge name={category.name} key={category.id}/>
             ))}
           </div>
         </div>

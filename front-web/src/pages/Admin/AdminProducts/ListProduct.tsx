@@ -12,6 +12,10 @@ const ListProduct = () => {
   const [isLoader, setIsLoader] = useState(false);
 
   useEffect(() => {
+   getDetele();
+  }, []);
+
+  const getDetele = () => { // criada essa função apenas para minha lista atualizar quando eu excluir um produto
     const params: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
@@ -29,7 +33,7 @@ const ListProduct = () => {
       .finally(() => {
         setIsLoader(false);
       });
-  }, []);
+  }
 
   return (
     <>
@@ -44,7 +48,10 @@ const ListProduct = () => {
 
       {isLoader ? (<h1>carregando...</h1>) : (product?.content.map((product) => (
         <div className="container-list-product-card">
-          <CardProduct product={product} categories={product.categories} />
+          <CardProduct 
+          product={product} 
+          onDelete = {() => getDetele()}
+          />
         </div>
       )))}
     </>
