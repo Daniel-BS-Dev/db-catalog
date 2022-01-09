@@ -7,20 +7,20 @@ import Button from 'components/Button';
 import './styles.scss';
 
 
-type FormData = {
+type Credencials = {
   username: string;
   password: string;
 };
 
 const Login = () => {
-  const {register, handleSubmit, formState: { errors }} = useForm<FormData>();
+  const {register, handleSubmit, formState: { errors }} = useForm <Credencials>();
   const [hasError, setHasError] = useState(false);
   const navigate = useNavigate();
 
   //estado para comunicação com o nav
   const { authContextData, setAuthContextData } = useContext(AuthContext);
 
-  const onSubmit = (formData: FormData) => {
+  const onSubmit =  (formData: Credencials) => {
     requestBackendLogin(formData)
       .then((response) => {
         saveAuthData(response.data); //salvando o token

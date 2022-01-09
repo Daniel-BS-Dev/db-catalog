@@ -1,10 +1,11 @@
-import { AxiosRequestConfig } from 'axios';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Product } from 'types/product';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/request';
+import { useEffect, useState } from 'react';
+import { AxiosRequestConfig } from 'axios';
 import CardProduct from '../CardProduct';
+import { Link } from 'react-router-dom';
+import { Product } from 'types/product';
+
 
 const ListProduct = () => {
   const [product, setProduct] = useState<SpringPage<Product>>();
@@ -14,6 +15,7 @@ const ListProduct = () => {
     const params: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
+      withCredentials: true,
       params: {
         page: 0,
         linePerPage: 100,
