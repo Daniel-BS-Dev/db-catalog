@@ -2,7 +2,7 @@ import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/request';
 import { useEffect, useState } from 'react';
 import { AxiosRequestConfig } from 'axios';
-import CardProduct from '../CardProduct';
+import CardProduct from './CardProduct';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
 
