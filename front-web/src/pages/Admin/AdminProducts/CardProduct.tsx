@@ -1,7 +1,9 @@
+import { AxiosRequestConfig } from 'axios';
 import Price from 'components/Price';
 import { Link } from 'react-router-dom';
 import { Category } from 'types/category';
 import { Product } from 'types/product';
+import { requestBackend } from 'util/request';
 import Categorybadge from './CategoryCardProduct';
 
 type Props = {
@@ -10,6 +12,26 @@ type Props = {
 };
 
 const CardProduct = ({ product, categories }: Props) => {
+
+  const handleDelete = (productId: number) => {
+
+    if (!window.confirm('Confirme em Ok')){//para confirma se vai deletar ou não
+      return;
+    }
+
+    const config: AxiosRequestConfig = {
+      method: 'DELETE',
+      url: `/products/${productId}`,
+      withCredentials: true,
+    };
+    
+    requestBackend(config)
+    .then(() => {
+      console.log(`Produto deletado${productId}`)
+    })
+  
+  }
+
   return (
     <div className="container-card-product">
       <div className="content-card-product">
@@ -30,7 +52,7 @@ const CardProduct = ({ product, categories }: Props) => {
           </div>
         </div>
         <div className="button-card-product">
-          <button className="btn btn-outline-danger">EXCLUIR</button>
+          <button className="btn btn-outline-danger" onClick={() => handleDelete(product.id)}>EXCLUIR</button>
           <Link to={`/admin/products/${product.id}`} className='link-button-cardproduct'>
             <button className="btn btn-outline-secondary">EDITAR</button>
           </Link>
