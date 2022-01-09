@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import ListProduct from './ListProduct';
-import NewProduct from './NewProduct';
+import NewProduct from '../AddProduct/NewProduct';
 import './styles.scss';
 
 const AdminProducts = () => {
