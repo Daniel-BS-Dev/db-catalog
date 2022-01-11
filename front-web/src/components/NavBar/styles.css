@@ -10,9 +10,10 @@
   letter-spacing: -0.015em;
   color: #ffffff;
 
-  .nav-logo-text:hover {
-    color: #000;
-  }
+}
+
+.nav-logo-text:hover {
+  color: #000;
 }
 
 .main-menu {
@@ -20,23 +21,24 @@
   display: flex;
   justify-content: space-between;
 
-  li {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 25px;
-    text-transform: uppercase;
-    letter-spacing: -0.015em;
-    color: rgba(255, 255, 255, 0.5);
-  }
+}
 
-  li:hover {
-    color: #000;
-  }
+.main-menu li {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  color: rgba(255, 255, 255, 0.5);
+}
 
-  .active {
-    font-weight: bold;
-    color: #ffffff;
-  }
+.main-menu li:hover {
+  color: #000;
+}
+
+.main-menu .active {
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .nav-login-logout {
@@ -51,15 +53,16 @@
     margin-right: 20px;
     color: #ffffff;
 
-    span {
-      margin-top: -8px;
-      font-size: 14px;
-    }
+  }
 
-    .nav-login, .nav-logout{
-      font-size: 18px;
-      font-weight: bolder;
-      text-transform: uppercase;
-    }
+  .nav-login-logout span {
+    margin-top: -8px;
+    font-size: 14px;
+  }
+
+  .nav-login-logout .nav-login, .nav-logout{
+    font-size: 18px;
+    font-weight: bolder;
+    text-transform: uppercase;
   }
 }

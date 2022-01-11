@@ -1,7 +1,7 @@
 import { AuthContext, AuthContextData } from 'AuthContext';
-import './assets/styles/custom.scss';
 import { useState } from 'react';
 import Route from './Route';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 

@@ -49,30 +49,30 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-  
 
-    h1 {
+  }
+
+  .auth-text h1 {
      
-      width: 645px;
-      font-size: 55px;
-      line-height: 65px;
-      letter-spacing: -0.015em;
-      color: #263238;
-    }
+    width: 645px;
+    font-size: 55px;
+    line-height: 65px;
+    letter-spacing: -0.015em;
+    color: #263238;
+  }
 
-    p {
-      width: 500px;
-      font-size: 24px;
-      line-height: 30px;
-      letter-spacing: -0.015em;
-      color: #9e9e9e;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
+  .auth-text p {
+    width: 500px;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: -0.015em;
+    color: #9e9e9e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
 
-    .authImage{
-      width: 650px;
-    }
+  .authImage{
+    width: 650px;
   }
 
   .auth-router {

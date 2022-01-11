@@ -28,13 +28,14 @@
   padding-left: 30px;
   padding-top: 30px;
 
-  h2 {
-    margin-top: -5px;
-    font-size: 22px;
-    line-height: 30px;
-    letter-spacing: -0.015em;
-    color: #263238;
-  }
+}
+
+.productDetails-previous h2 {
+  margin-top: -5px;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #263238;
 }
 
 .productDetails-arrow {
@@ -60,10 +61,11 @@
   box-sizing: border-box;
   border-radius: 20px;
 
-  img {
-    width: 80%;
-    height: 80%;
-  }
+}
+
+.productDetails-image img {
+  width: 80%;
+  height: 80%;
 }
 
 .productDetails-info {
@@ -71,7 +73,9 @@
   margin-bottom: 30px;
   padding: 0px 5px 0px 15px;
 
-  h2 {
+  }
+
+  .productDetails-info h2 {
     font-size: 27px;
     line-height: 41px;
     letter-spacing: -0.015em;
@@ -83,19 +87,20 @@
     justify-content: flex-start;
     margin-top: 10px;
 
-    h4 {
-      font-size: 42px;
-      line-height: 57px;
-      letter-spacing: -0.015em;
-    }
-
-    strong {
-      margin-right: 10px;
-      margin-top: -20px;
-      font-size: 24px;
-      line-height: 33px;
-    }
   }
+
+  .price-container h4 {
+    font-size: 42px;
+    line-height: 57px;
+    letter-spacing: -0.015em;
+  }
+
+  .price-container strong {
+    margin-right: 10px;
+    margin-top: -20px;
+    font-size: 24px;
+    line-height: 33px;
+  
 }
 
 .productDetails-contails-description {
@@ -112,23 +117,24 @@
   border-radius: 20px;
   margin-bottom: 40px;
 
-  h3 {
-    font-weight: 900;
-    font-size: 18px;
-    line-height: 25px;
-    letter-spacing: -0.015em;
-    margin-bottom: 30px;
-    color: #9e9e9e;
-  }
+}
 
-  p {
-    padding: 0px 10px;
-    text-align: justify;
-    font-size: 18px;
-    line-height: 25px;
-    letter-spacing: -0.015em;
-    color: #9e9e9e;
-  }
+.productdetails-description h3 {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.015em;
+  margin-bottom: 30px;
+  color: #9e9e9e;
+}
+
+.productdetails-description p {
+  padding: 0px 10px;
+  text-align: justify;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.015em;
+  color: #9e9e9e;
 }
 
 .productDetails-link {
@@ -153,10 +159,11 @@
     width: 90%;
     height: 315px;
 
-    img {
-      width: 30%;
-      height: 70%;
-    }
+  }
+
+  .productDetails-image img {
+    width: 30%;
+    height: 70%;
   }
 
   .productDetails-info {
@@ -166,12 +173,13 @@
     margin: 25px 0px 40px 0px;
     justify-content: flex-start;
 
-    h2 {
-      width: 400px;
-      font-size: 36px;
-      line-height: 49px;
-      margin-right: 20%;
-    }
+  }
+
+  .productDetails-info h2 {
+    width: 400px;
+    font-size: 36px;
+    line-height: 49px;
+    margin-right: 20%;
   }
 }
 
@@ -184,11 +192,12 @@
     display: flex;
     padding: 40px 0px 30px 50px;
 
-    h2 {
-      font-size: 24px;
-      line-height: 33px;
-      margin-left: 15px;
-    }
+  }
+
+  .productDetails-previous h2 {
+    font-size: 24px;
+    line-height: 33px;
+    margin-left: 15px;
   }
 
   .productDetails-arrow {
@@ -205,10 +214,11 @@
     width: 500px;
     height: 300px;
 
-    img {
-      width: 50%;
-      height: 70%;
-    }
+  }
+
+  .productDetails-image img {
+    width: 50%;
+    height: 70%;
   }
 
   .productDetails-info {
@@ -218,7 +228,9 @@
     margin-bottom: 90px;
     padding: 0px;
 
-    h2 {
+  }
+
+  .productDetails-info h2 {
       font-size: 36px;
       line-height: 49px;
     }
@@ -228,16 +240,17 @@
       justify-content: flex-start;
       margin-top: 25px;
 
-      h4 {
-        font-size: 45px;
-        line-height: 65px;
-      }
-
-      strong {
-        font-size: 28px;
-        line-height: 38px;
-      }
     }
+
+    .price-container h4 {
+      font-size: 45px;
+      line-height: 65px;
+    }
+
+    .price-container strong {
+      font-size: 28px;
+      line-height: 38px;
+    
   }
 
   .productDetails-contails-description {
@@ -250,15 +263,17 @@
     width: 90%;
     height: 490px;
 
-    h3 {
-      font-size: 24px;
-      line-height: 33px;
-      margin-bottom: 25px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 25px;
-    }
   }
+
+  .productdetails-description h3 {
+    font-size: 24px;
+    line-height: 33px;
+    margin-bottom: 25px;
+  }
+
+  .productdetails-description p {
+    font-size: 18px;
+    line-height: 25px;
+ }
+ 
 }

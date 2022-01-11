@@ -1,5 +1,3 @@
-import { Category } from "types/category";
-
 type Props = {
   name: string;
 };

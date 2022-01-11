@@ -1,7 +1,7 @@
 import {ReactComponent as Instagram} from '../../assets/image/instagram.svg';
 import {ReactComponent as GitHub} from '../../assets/image/github.svg';
 import {ReactComponent as Linkedin} from '../../assets/image/linkedin.svg';
-import './styles.scss';
+import './styles.css';
 
 const Footer = () => (
 <footer className='home-footer bg-primary'>

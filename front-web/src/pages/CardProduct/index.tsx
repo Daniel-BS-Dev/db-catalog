@@ -1,6 +1,6 @@
 import { Product } from 'types/product';
 import Price from 'components/Price';
-import './styles.scss';
+import './styles.css';
 
 type Props ={
   product: Product;

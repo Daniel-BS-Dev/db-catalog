@@ -14,12 +14,11 @@
   background: #ffffff;
 }
 
-.home-image {
-  svg {
+.home-image svg {
     width: 100%;
     height: auto;
-  }
 }
+
 
 .home-text {
   padding: 0px 20px;
@@ -28,65 +27,63 @@
   justify-content: center;
   align-items: center;
 
-  h1 {
-    font-weight: bold;
-    font-size: 26px;
-    line-height: 35px;
-    text-align: center;
-    letter-spacing: -0.015em;
-    color: #263238;
-    margin-top: 40px;
-    padding-bottom: 15px;
-  }
+}
 
-  p {
-    width: 260px;
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    letter-spacing: -0.015em;
-    color: #9e9e9e;
-    padding-bottom: 30px;
-  }
+.home-text h1 {
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #263238;
+  margin-top: 40px;
+  padding-bottom: 15px;
+}
 
-  button {
-    width: 290px;
-  }
+.home-text p {
+  width: 260px;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #9e9e9e;
+  padding-bottom: 30px;
+}
+
+.home-text button {
+  width: 290px;
 }
 
 @media screen and(min-width:576px) {
   .home-image {
     margin-bottom: 50px;
 
-    svg {
-      width: 450px;
-    }
   }
 
-  .home-text {
-    h1 {
+  .home-image svg {
+    width: 450px;
+  }
+
+  .home-text h1 {
       font-size: 30px;
       line-height: 40px;
     }
 
-    p {
+    .home-text p {
       width: 300px;
       font-size: 20px;
       line-height: 27px;
       padding-bottom: 30px;
     }
-  }
 }
 
 @media screen and (min-width: 768px) {
-  .home-image {
-    svg {
+  .home-image svg {
       width: 506px;
-    }
+    
   }
 
-  .home-text {
-    h1 {
+  .home-text h1 {
       font-size: 35px;
       line-height: 45px;
       letter-spacing: -0.015em;
@@ -94,16 +91,15 @@
       margin-top: 60px;
     }
 
-    p {
+    .home-text p {
       width: 350px;
       font-size: 23px;
       line-height: 28px;
     }
 
-    button {
+    .home-text button {
       width: 360px;
     }
-  }
 }
 
 @media screen and(min-width:992px) {
@@ -115,36 +111,36 @@
     padding: 125px 10px;
   }
 
-  .home-image {
-    svg {
+  .home-image svg {
       width: 550px;
-    }
+    
   }
 
   .home-text {
     padding: 50px 20px;
 
-    h1 {
-      font-size: 45px;
-      line-height: 55px;
-      padding-bottom: 25px;
-    }
+  }
 
-    p {
-      width: 500px;
-      font-size: 24px;
-      line-height: 33px;
-      padding-bottom: 40px;
-    }
+  .home-text h1 {
+    font-size: 45px;
+    line-height: 55px;
+    padding-bottom: 25px;
+  }
 
-    button {
-      width: 490px;
-      height: 70px;
-    }
+  .home-text p {
+    width: 500px;
+    font-size: 24px;
+    line-height: 33px;
+    padding-bottom: 40px;
+  }
+
+  .home-text button {
+    width: 490px;
+    height: 70px;
   }
 }
 
-@media screen and(min-width:1200px) {
+@media screen and (min-width:1200px) {
   .home-container {
     padding: 20px;
   }
@@ -157,11 +153,9 @@
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
   }
 
-  .home-image {
-    svg {
+  .home-image svg {
       width: 550px;
-      
-    }
+    
   }
 
   .home-text {
@@ -171,24 +165,31 @@
     justify-content: flex-start;
     align-items: flex-start;
     
-    h1 {
-      width: 100%;
-      font-size: 45px;
-      line-height: 55px;
-      text-align: justify;
-      margin-top: 40px;
-    }
+  }
 
-    p {
-      width: 100%;
-      font-size: 24px;
-      line-height: 33px;
-      text-align: justify;
-      padding-bottom: 60px;
-    }
+  .home-text h1 {
+    width: 100%;
+    font-size: 45px;
+    line-height: 55px;
+    text-align: justify;
+    margin-top: 40px;
+  }
 
-    .button-container {
-      width: 390px;
-    }
+  .home-text p {
+    width: 100%;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: justify;
+    padding-bottom: 60px;
+  }
+
+  .button-container {
+    width: 390px;
+    height: 70px;
+  }
+
+  .button-container button{
+    height: 100%;
+    
   }
 }

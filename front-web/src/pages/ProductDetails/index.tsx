@@ -6,7 +6,7 @@ import { Product } from 'types/product';
 import { BASE_URL } from 'util/request';
 import Price from 'components/Price';
 import axios from 'axios';
-import './styles.scss';
+import './styles.css';
 
 type UrlParams = {
   id: string;

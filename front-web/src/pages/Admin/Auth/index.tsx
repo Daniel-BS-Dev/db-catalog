@@ -3,7 +3,7 @@ import { ReactComponent as AuthImage } from '../../../assets/image/authImage.svg
 import Login from './Login';
 import Recover from './Recover';
 import Singup from './Singup';
-import './styles.scss';
+import './styles.css';
 
 const Auth = () => {
   return (

@@ -2,8 +2,7 @@ import {getTokenData, isAuthenticated, removeToken} from 'util/request';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useContext, useEffect} from 'react';
 import { AuthContext } from 'AuthContext';
-import './styles.scss';
-
+import './styles.css';
 
 
 const NavBar = () => {
@@ -23,7 +22,7 @@ const NavBar = () => {
         isAuthenticated: false,
       });
     }
-  }, [authContextData]);
+  },[setAuthContextData]);
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();

@@ -4,7 +4,7 @@ import AdminCategories from './AdminCategories';
 import AdminProducts from './AdminProducts';
 import NavBarAdmin from './NavBarAdmin';
 import AdminUsers from './AdminUsers';
-import './styles.scss';
+import './styles.css';
 
 const Admin = () => {
   const auth = isAuthenticated();

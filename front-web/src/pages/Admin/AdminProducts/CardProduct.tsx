@@ -1,7 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import Price from 'components/Price';
 import { Link } from 'react-router-dom';
-import { Category } from 'types/category';
 import { Product } from 'types/product';
 import { requestBackend } from 'util/request';
 import Categorybadge from './CategoryCardProduct';
@@ -33,7 +32,6 @@ const CardProduct = ({ product, onDelete }: Props) => {
   }
 
   return (
-    <div className="container-card-product">
       <div className="content-card-product">
         <div className="card-product-image">
           <img src={product.imgUrl} alt={product.name} />
@@ -45,7 +43,7 @@ const CardProduct = ({ product, onDelete }: Props) => {
           </div>
           <div className="categories-card-product">
           {product.categories.map(category => (
-          <Categorybadge name={category.name}/>
+          <Categorybadge name={category.name} key={category.id} />
           ))}
           </div>
         </div>
@@ -56,7 +54,7 @@ const CardProduct = ({ product, onDelete }: Props) => {
           </Link>
         </div>
       </div>
-    </div>
+
   );
 };
 

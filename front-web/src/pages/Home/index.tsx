@@ -1,7 +1,7 @@
 import { ReactComponent as Img } from '../../assets/image/bighome.svg';
 import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
-import './styles.scss';
+import './styles.css';
 
 
 const Home = () => {

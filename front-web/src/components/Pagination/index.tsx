@@ -1,6 +1,6 @@
 import { ReactComponent as Arrow } from '../../assets/image/Seta.svg';
 import { generatedList } from 'util/list';
-import './styles.scss';
+import './styles.css';
 
 type Props = {
   totalPages: number;

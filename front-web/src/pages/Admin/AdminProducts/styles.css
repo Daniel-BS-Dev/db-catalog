@@ -1,0 +1,266 @@
+.list-product-button-add {
+  border: 1px solid #000;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #0d6efd;
+}
+
+.list-product-button-add button {
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.list-product-field-search {
+  padding: 0px 5px;
+  height: 70px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.content-card-product {
+  background: #ffffff;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  margin-bottom: 25px;
+}
+
+.card-product-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-product-image img {
+  width: 50%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.product-card-product {
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid rgba(175, 175, 175, 0.2);
+}
+
+.info-card-product {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.info-card-product h3 {
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  color: #263238;
+}
+
+.price-container h4 {
+  margin-top: -20px;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.price-container strong {
+  margin-top: -30px;
+  font-size: 20px;
+  
+}
+
+.categorybadge {
+  height: 33px;
+  background-color: #c4c4c4;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #424242;
+  font-weight: bold;
+  font-size: 14px;
+ 
+}
+
+.categories-card-product {
+  width: 99%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-gap: 10px 5px;
+  margin-bottom: 20px;
+}
+
+.button-card-product {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  margin: 35px 0px 10px 0px;
+}
+
+.button-card-product button {
+  width: 110px;
+  height: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 576px) { 
+  .card-product-image {
+    width: 500px;
+  }
+  
+  .card-product-image img {
+    border-radius: 10px;
+  }
+
+  .product-card-product{
+    padding-left: 20px;
+  }
+  
+  .info-card-product {
+    margin-top: 20px;
+    
+  }
+  
+  .info-card-product h3 {
+    font-size: 25px;
+  
+  }
+  
+  .price-container h4 {
+    margin-top: -10px;
+    font-size: 30px;
+    line-height: 33px;
+  }
+  
+  .price-container strong {
+    margin-top: -20px;
+    
+  }
+  
+  .categorybadge {
+    height: 40px;
+    font-size: 15px;
+   
+  }
+  
+  .categories-card-product {
+    margin-top: 15px;
+  }
+  
+  .button-card-product {
+   padding: 0px 20px;
+   margin: 55px 0px 10px 0px;
+  }
+  
+  .button-card-product button {
+    width: 190px;
+    font-size: 15px;
+    
+  }
+ 
+}
+
+@media screen and (min-width: 820px) {
+  .adminproducts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .list-product-add {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .list-product-button {
+    width: 170px;
+    height: 60px;
+    margin-right: 25px;
+  }
+
+  .list-product-search {
+    flex: 1;
+  }
+
+  .container-list-product-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content-card-product {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .card-product-image {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    padding: 20px 10px;
+    justify-content: start;
+    align-items: flex-start;
+    border-right: 1px solid rgba(175, 175, 175, 0.2);
+  }
+
+  .card-product-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .product-card-product {
+    width: 500px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .button-card-product {
+    width: 220px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 3%;
+    margin: 35px 0px;
+  }
+
+  .link-button-cardproduct {
+    height: 25%;
+  }
+
+  .link-button-cardproduct button {
+    height: 100%;
+  }
+
+  .link-button-cardproduct button {
+    width: 200px;
+    height: 25%;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    border-radius: 10px;
+  }
+}

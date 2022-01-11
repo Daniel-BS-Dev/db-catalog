@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from 'AuthContext';
 import { useForm } from 'react-hook-form';
 import Button from 'components/Button';
-import './styles.scss';
+import './styles.css';
 
 
 type Credencials = {

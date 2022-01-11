@@ -1,5 +1,5 @@
 import { ReactComponent as Arrow } from '../../assets/image/Seta.svg';
-import './styles.scss';
+import './styles.css';
 
 type Props = {
   text: string;

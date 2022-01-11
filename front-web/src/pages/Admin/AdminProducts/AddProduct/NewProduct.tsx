@@ -4,8 +4,8 @@ import { requestBackend } from 'util/request';
 import { AxiosRequestConfig } from 'axios';
 import { useForm } from 'react-hook-form';
 import { Product } from 'types/product';
-import './styles.scss';
 import { useEffect } from 'react';
+import './styles.css';
 
 type ProductUrl = {
   productId : string;

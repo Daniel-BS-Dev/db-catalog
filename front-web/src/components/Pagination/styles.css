@@ -56,11 +56,11 @@
   .pagination-number {
     display: flex;
 
-    button {
-      margin-right: 10px;
-    
-    }
+  }
 
+  .pagination-number button {
+    margin-right: 10px;
+  
   }
 
   .pagination-arrow-next {

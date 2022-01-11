@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { AxiosRequestConfig } from 'axios';
 import { Product } from 'types/product';
 import { Link } from 'react-router-dom';
-import './styles.scss';
+import './styles.css';
 
 
 const Catalog = () => {
@@ -37,8 +37,8 @@ const Catalog = () => {
   }, [isActive]);
 
   return (
-    <div className="catalog-container">
-      <div className="row catalog-content">
+    <div className="container">
+      <div className="row">
         {isLoader ? (
           <h1 className="catalog-loader">Carregando...</h1>
         ) : (

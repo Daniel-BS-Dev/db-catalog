@@ -6,16 +6,16 @@ import CardProduct from './CardProduct';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
 
-
 const ListProduct = () => {
   const [product, setProduct] = useState<SpringPage<Product>>();
   const [isLoader, setIsLoader] = useState(false);
 
   useEffect(() => {
-   getDetele();
+    getDetele();
   }, []);
 
-  const getDetele = () => { // criada essa função apenas para minha lista atualizar quando eu excluir um produto
+  const getDetele = () => {
+    // criada essa função apenas para minha lista atualizar quando eu excluir um produto
     const params: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
@@ -33,27 +33,35 @@ const ListProduct = () => {
       .finally(() => {
         setIsLoader(false);
       });
-  }
+  };
 
   return (
     <>
-      <div className="list-product-add">
-        <Link to="/admin/products/create">
-          <button className="list-product-button btn btn-primary text-white">
-            ADICIONAR
-          </button>
-        </Link>
-        <div className="list-product-search">Search Product</div>
-      </div>
+      <div className="container">
+        <div className="row">
+          <Link
+            to="/admin/products/create"
+            className="col-12 col-md-3 list-product-button-add"
+          >
+            <button className="btn btn-primary text-white ">ADICIONAR</button>
+          </Link>
+          <div className="col-12 col-md-9 list-product-field-search">Search Product</div>
 
-      {isLoader ? (<h1>carregando...</h1>) : (product?.content.map((product) => (
-        <div className="container-list-product-card">
-          <CardProduct 
-          product={product} 
-          onDelete = {() => getDetele()}
-          />
+          <div className="col-12 list-product-list-product">
+            {isLoader ? (
+              <h1>Carregando...</h1>
+            ) : (
+              product?.content.map((product) => (
+                <CardProduct
+                  product={product}
+                  onDelete={() => getDetele()}
+                  key={product.id}
+                />
+              ))
+            )}
+          </div>
         </div>
-      )))}
+      </div>
     </>
   );
 };
