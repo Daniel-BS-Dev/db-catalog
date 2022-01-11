@@ -4,6 +4,7 @@ import { requestBackend } from 'util/request';
 import { AxiosRequestConfig } from 'axios';
 import { useForm } from 'react-hook-form';
 import { Product } from 'types/product';
+import Select from 'react-select';
 import { useEffect } from 'react';
 import './styles.css';
 
@@ -69,16 +70,22 @@ const NewProduct = () => {
     navigate('/admin/products/');
   }
 
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
+
   return (
     <div className="container-new-product">
       <div className="content-new-product">
         <Link to="/admin/products" className="title-new-product">
           <Previous className="previous-new-product" />
-          <h2>Voltar</h2>
+          <h2>voltar</h2>
         </Link>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row form-new-product">
-            <div className="col-12 col-md-6 input-new-product">
+            <div className="col-12 col-lg-6 input-new-product">
               <input
                 type="text"
                 placeholder="Nome do Produto"
@@ -87,12 +94,25 @@ const NewProduct = () => {
                   required: 'Campo obrigatório',
                 })}
               />
-              <div className="invalid-feedback d-block login-error">
+              <div className="invalid-feedback d-block login-error input-error">
                 {
                   // para aparecer e tenho que usar o display block na div
                   errors.name?.message //pegando erro com o hook message e a mensagem do meu required
                 }
               </div>
+
+              <Select 
+              options={options} 
+              classNamePrefix="select-new-product"
+          
+              />
+               <div className="invalid-feedback d-block login-error input-error">
+                {
+                  // para aparecer e tenho que usar o display block na div
+                  errors.name?.message //pegando erro com o hook message e a mensagem do meu required
+                }
+              </div>
+
               <input
                 type="text"
                 placeholder="Preço"
@@ -107,7 +127,7 @@ const NewProduct = () => {
                 }
               </div>
             </div>
-            <div className="col-12 col-md-6 description-new-product">
+            <div className="col-12 col-lg-6 description-new-product">
               <textarea 
               rows={10} 
               className={`form-control h-auto ${errors.price ? 'is-invalid' : ''}`}
