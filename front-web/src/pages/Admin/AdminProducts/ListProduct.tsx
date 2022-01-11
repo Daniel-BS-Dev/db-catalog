@@ -45,21 +45,22 @@ const ListProduct = () => {
           >
             <button className="btn btn-primary text-white ">ADICIONAR</button>
           </Link>
-          <div className="col-12 col-md-9 list-product-field-search">Search Product</div>
-
-          <div className="col-12 list-product-list-product">
+          <div className="col-12 col-md-8 list-product-field-search">Search Product</div>
+          
             {isLoader ? (
               <h1>Carregando...</h1>
             ) : (
               product?.content.map((product) => (
+                <div className="col-12 col-md-6 col-lg-4 col-xl-12 list-product-list-product">
                 <CardProduct
                   product={product}
                   onDelete={() => getDetele()}
                   key={product.id}
                 />
+                 </div>
               ))
             )}
-          </div>
+           
         </div>
       </div>
     </>
