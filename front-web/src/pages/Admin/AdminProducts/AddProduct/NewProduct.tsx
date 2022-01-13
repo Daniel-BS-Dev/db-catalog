@@ -2,7 +2,7 @@ import { ReactComponent as Previous } from '../../../../assets/image/Seta.svg';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { requestBackend } from 'util/request';
 import { AxiosRequestConfig } from 'axios';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { Product } from 'types/product';
 import Select from 'react-select';
 import { useState, useEffect } from 'react';
@@ -22,6 +22,7 @@ const NewProduct = () => {
     register,
     handleSubmit,
     setValue, // para inserir um valor ou atualizar
+    control, // para controle do meu select
     formState: { errors },
   } = useForm<Product>();
   const navigate = useNavigate();
@@ -52,14 +53,7 @@ const NewProduct = () => {
       imgUrl: isEditing
         ? formData.imgUrl
         : '	https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/3-big.jpg',
-      categories: isEditing
-        ? formData.categories
-        : [
-            {
-              id: 1,
-              name: 'eletronicos',
-            },
-          ],
+     
     };
 
     const config: AxiosRequestConfig = {
@@ -69,9 +63,13 @@ const NewProduct = () => {
       withCredentials: true,
     };
     requestBackend(config).then((response) => {
-      console.log(response.data);
-    });
-    navigate('/admin/products/');
+      console.log(response);
+    })
+    .finally(() => {
+      navigate('/admin/products/');
+      document.location.reload();
+    })
+    
   };
 
   const handleCancel = () => {
@@ -102,22 +100,29 @@ const NewProduct = () => {
                   errors.name?.message //pegando erro com o hook message e a mensagem do meu required
                 }
               </div>
-
-              <Select
-                placeholder="Categories"
-                options={selectCategories}
-                classNamePrefix="select-new-product"
-                isMulti
-                getOptionLabel={(category: Category) => category.name}
-                getOptionValue={(category: Category) => String(category.id)}
+              <Controller
+                name="categories"
+                rules={{ required: true }} // obriga o usuario a selecionar 
+                control={control}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    placeholder="Categories"
+                    options={selectCategories}
+                    classNamePrefix="select-new-product"
+                    isMulti
+                    getOptionLabel={(category: Category) => category.name}
+                    getOptionValue={(category: Category) => String(category.id)}
+                  />
+                )}
               />
-              <div className="invalid-feedback d-block login-error input-error">
-                {
-                  // para aparecer e tenho que usar o display block na div
-                  errors.name?.message //pegando erro com o hook message e a mensagem do meu required
-                }
+              <div className='input-error'>
+              {errors.categories && (
+              <div className="invalid-feedback d-block login-error">
+                  campo obrigatório
               </div>
-
+              )}
+              </div>
               <input
                 type="text"
                 placeholder="Preço"
