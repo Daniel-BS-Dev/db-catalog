@@ -50,7 +50,7 @@
 
 .description-new-product {
   width: 100%;
-  margin-top: 40px;
+  
 }
 
 .description-new-product textarea {
@@ -59,6 +59,10 @@
   line-height: 22px;
   letter-spacing: -0.015em;
   color: #9e9e9e;
+}
+
+.input-error {
+  margin-bottom: 40px;
 }
 
 .buttons-new-product {
@@ -74,12 +78,13 @@
   text-transform: uppercase;
 }
 
-.select-new-product__control {
+.select-new-product__control{
   border-radius: 10px !important;
   font-size: 16px;
   letter-spacing: -0.015em;
   color: #263238;
   height: 50px;
+  padding-right:10px !important;
 }
 
 .select-new-product__value-container{
@@ -89,6 +94,8 @@
 
 .select-new-product__placeholder {
   color: #9e9e9e !important;
+  padding-left: 15px !important;
+
 }
 
 .select-new-product__indicator-separator {
@@ -151,7 +158,5 @@
     margin-right: 30px;
   }
 
-  .input-error {
-    margin-bottom: 30px;
-  }
+ 
 }

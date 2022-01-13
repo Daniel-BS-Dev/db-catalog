@@ -51,11 +51,10 @@ const ListProduct = () => {
               <h1>Carregando...</h1>
             ) : (
               product?.content.map((product) => (
-                <div className="col-12 col-md-6 col-lg-4 col-xl-12 list-product-list-product">
+                <div className="col-12 col-md-6 col-lg-4 col-xl-12 list-product-list-product" key={product.id}>
                 <CardProduct
                   product={product}
                   onDelete={() => getDetele()}
-                  key={product.id}
                 />
                  </div>
               ))
