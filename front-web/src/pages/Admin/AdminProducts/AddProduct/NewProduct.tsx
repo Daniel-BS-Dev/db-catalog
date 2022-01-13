@@ -1,13 +1,15 @@
 import { ReactComponent as Previous } from '../../../../assets/image/Seta.svg';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { requestBackend } from 'util/request';
-import { AxiosRequestConfig } from 'axios';
+import CurrencyInput from 'react-currency-input-field';
 import { useForm, Controller } from 'react-hook-form';
+import { requestBackend } from 'util/request';
+import { useState, useEffect } from 'react';
+import { AxiosRequestConfig } from 'axios';
+import { Category } from 'types/category';
 import { Product } from 'types/product';
 import Select from 'react-select';
-import { useState, useEffect } from 'react';
 import './styles.css';
-import { Category } from 'types/category';
+
 
 type ProductUrl = {
   productId: string;
@@ -53,7 +55,7 @@ const NewProduct = () => {
       imgUrl: isEditing
         ? formData.imgUrl
         : '	https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/3-big.jpg',
-     
+       price: String(formData.price).replace(',', ".")
     };
 
     const config: AxiosRequestConfig = {
@@ -123,13 +125,20 @@ const NewProduct = () => {
               </div>
               )}
               </div>
-              <input
-                type="text"
-                placeholder="Preço"
-                className={`form-control ${errors.price ? 'is-invalid' : ''}`}
-                {...register('price', {
-                  required: 'Campo obrigatório',
-                })}
+              <Controller
+                name="price"
+                rules={{required: 'Campo obrigatorio'}}
+                control={control}
+                render={({ field }) => (
+                  <CurrencyInput
+                  placeholder="Preço"
+                  className={`form-control ${errors.price ? 'is-invalid' : ''}`}
+                  disableGroupSeparators={true}
+                  value={field.value}
+                  onValueChange={field.onChange}
+                   />
+                )}
+               
               />
               <div className="invalid-feedback d-block login-error input-error">
                 {errors.price?.message}
