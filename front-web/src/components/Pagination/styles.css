@@ -9,6 +9,7 @@
 .pagination-arrow-previous {
   margin-right: 15px;
   transform: rotate(180deg);
+  color: #407bff;
 }
 
 .pagination-number {
@@ -27,6 +28,19 @@
 
 }
 
+.pagination-item{
+  border-radius: 50%;
+  padding:15px;
+  background: #e1e1e1;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
 .activeNumber {
   cursor: pointer;
   background-color: #407bff;
@@ -35,6 +49,7 @@
 
 .pagination-arrow-next {
   padding-left: 10px;
+  color: #407bff;
 }
 
 .inactiveArrow {
@@ -46,6 +61,7 @@
   cursor: pointer;
   color: #407bff;
 }
+
 
 @media screen and (min-width: 768px) {
   .pagination-arrow-previous {

@@ -71,7 +71,6 @@ const NewProduct = () => {
       navigate('/admin/products/');
       document.location.reload();
     })
-    
   };
 
   const handleCancel = () => {

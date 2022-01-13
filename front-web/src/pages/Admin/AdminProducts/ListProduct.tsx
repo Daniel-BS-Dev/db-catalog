@@ -5,6 +5,7 @@ import { AxiosRequestConfig } from 'axios';
 import CardProduct from './CardProduct';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
+import ReactLib from 'components/Pagination/paginationReact';
 
 const ListProduct = () => {
   const [product, setProduct] = useState<SpringPage<Product>>();
@@ -22,7 +23,7 @@ const ListProduct = () => {
       withCredentials: true,
       params: {
         page: 0,
-        linePerPage: 100,
+        linePerPage: 2,
       },
     };
     setIsLoader(true);
@@ -62,6 +63,7 @@ const ListProduct = () => {
            
         </div>
       </div>
+      <ReactLib />
     </>
   );
 };
