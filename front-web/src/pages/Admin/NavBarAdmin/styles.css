@@ -78,7 +78,7 @@
     .navbaradmin-content li{
       flex: 1;
       width: 100%;
-      outline: 1px solid #E1E1E1;
+      border-bottom:1px solid #E1E1E1;
       
 
   }

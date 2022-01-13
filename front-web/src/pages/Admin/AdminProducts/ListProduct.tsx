@@ -8,28 +8,28 @@ import { Product } from 'types/product';
 import ReactLib from 'components/Pagination/paginationReact';
 
 const ListProduct = () => {
-  const [product, setProduct] = useState<SpringPage<Product>>();
+  const [products, setProducts] = useState<SpringPage<Product>>();
   const [isLoader, setIsLoader] = useState(false);
 
   useEffect(() => {
-    getDetele();
+    getDelete(0);
   }, []);
 
-  const getDetele = () => {
+  const getDelete = (activePage : number) => {
     // criada essa função apenas para minha lista atualizar quando eu excluir um produto
     const params: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
       withCredentials: true,
       params: {
-        page: 0,
+        page: activePage,
         linePerPage: 2,
       },
     };
     setIsLoader(true);
     requestBackend(params)
       .then((response) => {
-        setProduct(response.data);
+        setProducts(response.data);
       })
       .finally(() => {
         setIsLoader(false);
@@ -51,11 +51,11 @@ const ListProduct = () => {
             {isLoader ? (
               <h1>Carregando...</h1>
             ) : (
-              product?.content.map((product) => (
+              products?.content.map((product) => (
                 <div className="col-12 col-md-6 col-lg-4 col-xl-12 list-product-list-product" key={product.id}>
                 <CardProduct
                   product={product}
-                  onDelete={() => getDetele()}
+                  onDelete={() => getDelete(products.number)}
                 />
                  </div>
               ))
@@ -63,7 +63,11 @@ const ListProduct = () => {
            
         </div>
       </div>
-      <ReactLib />
+      <ReactLib
+        pageCount={products ? products.totalPages : 0}
+        range={3}
+        onChange={getDelete}
+      />
     </>
   );
 };
