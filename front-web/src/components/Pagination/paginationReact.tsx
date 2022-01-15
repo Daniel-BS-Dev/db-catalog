@@ -4,14 +4,16 @@ import './styles.css';
 
 
 type Props = {
+    forcePage?: number;
     pageCount : number,
     range : number,
     onChange? : (item : number) => void;
 }
 
-const ReactLib = ({ pageCount, range, onChange } : Props) => {
+const ReactLib = ({forcePage, pageCount, range, onChange } : Props) => {
     return(
         <ReactPaginate 
+          forcePage={forcePage}
           pageCount={pageCount} //numero de pagina
           pageRangeDisplayed={range} // numero que vai aparecer antes dos ...
           onPageChange = {(items) => (onChange) ? onChange(items.selected) : {}}

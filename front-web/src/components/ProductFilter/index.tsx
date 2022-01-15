@@ -7,12 +7,17 @@ import Select from 'react-select';
 import './styles.css';
 
 
-type ProductFilterData = {
+export type ProductFilterData = {
   name: string;
   category: Category | null;
 };
 
-const ProductFilter = () => {
+// props pra mudar o filter
+type Props = {
+  filterData : (data : ProductFilterData) => void;
+}
+
+const ProductFilter = ({ filterData } : Props) => {
 
   const [selectCategories, setSelectCategories] = useState<Category[]>([]);
   const { register, handleSubmit, setValue, getValues, control } =
@@ -25,7 +30,7 @@ const ProductFilter = () => {
     }, []);
 
     const onSubmit = (formData: ProductFilterData) => {
-      console.log('clicou', formData);
+      filterData(formData);
     }
 
     //função para limpar o campo
@@ -36,14 +41,14 @@ const ProductFilter = () => {
 
    //função para enviar categoria
    const onChangeCategory = (value: Category) => {
-       setValue("category", value); // pegando oq veio de argumento
+       setValue('category', value); // pegando oq veio de argumento
   
        const obj : ProductFilterData = {
          name : getValues('name'),
          category : getValues('category')
        }
 
-       console.log('enviou', obj);
+       filterData(obj);
   
   }
 
