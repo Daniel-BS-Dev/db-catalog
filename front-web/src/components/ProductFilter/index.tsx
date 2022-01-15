@@ -9,13 +9,13 @@ import './styles.css';
 
 type ProductFilterData = {
   name: string;
-  category: Category;
+  category: Category | null;
 };
 
 const ProductFilter = () => {
 
   const [selectCategories, setSelectCategories] = useState<Category[]>([]);
-  const { register, handleSubmit, setValue, control } =
+  const { register, handleSubmit, setValue, getValues, control } =
     useForm<ProductFilterData>();
 
     useEffect(() => {
@@ -24,10 +24,28 @@ const ProductFilter = () => {
       });
     }, []);
 
-
     const onSubmit = (formData: ProductFilterData) => {
       console.log('clicou', formData);
     }
+
+    //função para limpar o campo
+   const handleOnClick = () => {
+     setValue('name', '');
+     setValue('category', null);
+   }
+
+   //função para enviar categoria
+   const onChangeCategory = (value: Category) => {
+       setValue("category", value); // pegando oq veio de argumento
+  
+       const obj : ProductFilterData = {
+         name : getValues('name'),
+         category : getValues('category')
+       }
+
+       console.log('enviou', obj);
+  
+  }
 
   return (
     <div className="product-filter-search">
@@ -44,7 +62,8 @@ const ProductFilter = () => {
           </button>
         </div>
         <div className="filter-select-button">
-          <Controller
+         <div className='filter-select-product'>
+         <Controller
             name="category"
             control={control}
             render={({ field }) => (
@@ -53,13 +72,15 @@ const ProductFilter = () => {
                 placeholder="Categoria"
                 options={selectCategories}
                 isClearable={true}
-                classNamePrefix="select-new-product"
+                onChange={(value) => onChangeCategory(value as Category)}
+                classNamePrefix="select-filter-product"
                 getOptionLabel={(category: Category) => category.name}
                 getOptionValue={(category: Category) => String(category.id)}
               />
             )}
           />
-          <button className="btn btn-outline-secondary filter-button">
+         </div>
+          <button onClick={handleOnClick} className="btn btn-outline-secondary filter-button">
             Limpar <span className="filter-button-title">filtro</span>
           </button>
         </div>
