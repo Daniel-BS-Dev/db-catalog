@@ -24,7 +24,7 @@ public class RoleResource {
 	public ResponseEntity<Page<RoleDTO>> findAll(@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linePerPages", defaultValue = "12") Integer linePerPages,
 			@RequestParam(value = "direction", defaultValue = "DESC") String direction,
-			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy
+			@RequestParam(value = "orderBy", defaultValue = "authority") String orderBy
 
 	) {
 
