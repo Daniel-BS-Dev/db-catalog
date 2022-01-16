@@ -1,5 +1,5 @@
 import { getTokenData, requestBackendLogin, saveAuthData } from 'util/request';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from 'AuthContext';
 import { useForm } from 'react-hook-form';
@@ -80,8 +80,9 @@ const Login = () => {
             <Button text="LOGAR" />
           </div>
           <p className="login-fillOut">
-            Não tem Cadastro? <span>CADASTRAR</span>
+            Não tem Cadastro?<Link to="/admin/auth/register"><span>CADASTRAR</span></Link>
           </p>
+          
         </form>
       </div>
     </div>

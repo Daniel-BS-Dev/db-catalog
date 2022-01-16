@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ReactComponent as AuthImage } from '../../../assets/image/authImage.svg';
 import Login from './Login';
 import Recover from './Recover';
-import Singup from './Singup';
+import Singup from './Register';
 import './styles.css';
 
 const Auth = () => {
@@ -23,7 +23,7 @@ const Auth = () => {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/recover" element={<Recover />} />
-            <Route path="/singup" element={<Singup />} />
+            <Route path="/register" element={<Singup />} />
           </Routes>
         </div>
       </div>

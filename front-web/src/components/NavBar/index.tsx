@@ -79,7 +79,7 @@ const NavBar = () => {
             <>
               <span>{authContextData.token?.user_name}</span>
               <Link to="#logout" className="nav-logout" onClick={handleClick}>
-                Logout
+                SAIR
               </Link>
             </>
           ) : (
