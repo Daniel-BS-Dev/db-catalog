@@ -1,0 +1,21 @@
+.container-register{
+    padding: 20px
+}
+
+.content-register{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content-register h1{
+    font-weight: normal;
+    font-size: 35px;
+    background-color: aqua;
+    margin: 20px 0px 40px 0px;
+}
+
+.space-error{
+    margin-top: 30px;
+}
