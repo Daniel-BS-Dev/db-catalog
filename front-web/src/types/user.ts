@@ -1,4 +1,4 @@
-import { Role } from 'types/category';
+import { Role } from "./vendor/role";
 
 export type User = {
     id: number,
@@ -6,6 +6,6 @@ export type User = {
     lastName: string,
     email: string,
     password: string,
-    roles: Role[]
+    roles: Role[];
 }
 
