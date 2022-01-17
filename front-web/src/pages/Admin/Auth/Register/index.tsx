@@ -2,16 +2,10 @@ import { Controller, useForm } from 'react-hook-form';
 import Button from 'components/Button';
 import './styles.css';
 import Select from 'react-select';
-import { Role } from 'types/vendor/role';
-import { useState } from 'react';
-
-type Credencials = {
-  firstName: string;
-  lastName: string;
-  username: string;
-  password: string;
-  roles: Role;
-};
+import { Role } from 'types/role';
+import { User } from 'types/user';
+import { useEffect, useState } from 'react';
+import { requestBackend } from 'util/request';
 
 const Register = () => {
   const {
@@ -19,11 +13,17 @@ const Register = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<Credencials>();
+  } = useForm<User>();
 
-  const [selectCategories, setSelectCategories] = useState<Role[]>([]);
+  const [selectRoles, setSelectRoles] = useState<Role[]>([]);
 
-  const onSubmit = (formData: Credencials) => {
+  useEffect(() => {
+    requestBackend({ url: `/roles` }).then((response) => {
+      setSelectRoles(response.data.content);
+    });
+  }, []);
+
+  const onSubmit = (formData: User) => {
     console.log('clicou', formData);
   };
 
@@ -35,34 +35,34 @@ const Register = () => {
           <input
             type="text"
             placeholder="Digite Seu Primeiro Nome"
-            className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+            className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
             {...register('firstName', {
               required: 'Campo obrigatório',
             })}
           />
           <div className="invalid-feedback d-block login-error">
-            {errors.username?.message}
+            {errors.firstName?.message}
           </div>
 
           <input
             type="text"
             placeholder="Digite Seu Sobrenome"
             className={`form-control space-error ${
-              errors.password ? 'is-invalid' : ''
+              errors.lastName ? 'is-invalid' : ''
             }`}
             {...register('lastName', { required: 'Campo obrigatório' })}
           />
           <div className="invalid-feedback d-block login-error">
-            {errors.password?.message}
+            {errors.lastName?.message}
           </div>
 
           <input
             type="email"
             placeholder="Email"
             className={`form-control space-error ${
-              errors.username ? 'is-invalid' : ''
+              errors.email ? 'is-invalid' : ''
             }`}
-            {...register('username', {
+            {...register('email', {
               required: 'Campo obrigatório',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -73,7 +73,7 @@ const Register = () => {
           <div className="invalid-feedback d-block login-error">
             {
               // para aparecer e tenho que usar o display block na div
-              errors.username?.message //pegando erro com o hook message e a mensagem do meu required
+              errors.email?.message //pegando erro com o hook message e a mensagem do meu required
             }
           </div>
           <input
@@ -98,7 +98,7 @@ const Register = () => {
               <Select
                 {...field}
                 placeholder="Perfil"
-                options={selectCategories}
+                options={selectRoles}
                 classNamePrefix="select-new-product"
                 isMulti
                 getOptionLabel={(roles: Role) => roles.authority}
@@ -106,8 +106,12 @@ const Register = () => {
               />
             )}
           />
-          <div className="invalid-feedback d-block login-error input-error">
-            error
+          <div className="input-error">
+            {errors.roles && (
+              <div className="invalid-feedback d-block login-error">
+                campo obrigatório
+              </div>
+            )}
           </div>
           <Button text="CADASTRAR" />
         </form>
