@@ -37,20 +37,20 @@ const Catalog = () => {
   }, [isActive]);
 
   return (
-    <div className="container">
+    <div className="container-card">
       <div className="row">
         {isLoader ? (
           <h1 className="catalog-loader">Carregando...</h1>
         ) : (
           page?.content.map((product) => (
-            <Link
+            <div
               key={product.id}
-              to={`/products/${product.id}`}
-              className="col-12 col-sm-4 col-md-3 col-lg-2 catalog-product"
-              
+              className="col-12 col-sm-5 col-md-3 col-lg-2 catalog-product"
             >
+              <Link to={`/products/${product.id}`}>
               <CardProduct product={product} />
             </Link>
+            </div>
           ))
         )}
         <div className="catalog-pagination">
@@ -62,7 +62,7 @@ const Catalog = () => {
             />
           )}
         </div>
-      </div>
+        </div>
     </div>
   );
 };

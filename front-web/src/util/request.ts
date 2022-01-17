@@ -102,6 +102,7 @@ axios.interceptors.response.use(
       history.push('/products');
       document.location.reload();
     }
+
     return Promise.reject(error);
   }
 );
