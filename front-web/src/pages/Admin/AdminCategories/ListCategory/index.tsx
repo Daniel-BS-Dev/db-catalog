@@ -1,19 +1,40 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { SpringPage } from 'types/vendor/spring';
 import { Category } from 'types/category';
 import CardCategory from '../CardCategory';
 import { requestBackend } from 'util/request';
 import CategoryFilter from 'components/CategoryFilter';
 import { Link } from 'react-router-dom';
+import { AxiosRequestConfig } from 'axios';
 
 const ListCategories = () => {
   const [categories, setCategories] = useState<SpringPage<Category>>();
+  const [isLoader, setIsLoader] = useState(false);
+
+  const getDelete= useCallback(() => {
+    const params: AxiosRequestConfig = {
+      method: 'GET',
+      url: '/categories',
+      withCredentials: true,
+      params: {
+        page: 0,
+        linePerPage: 3,
+       
+      },
+    };
+    setIsLoader(true);
+    requestBackend(params)
+      .then((response) => {
+        setCategories(response.data);
+      })
+      .finally(() => {
+        setIsLoader(false);
+      });
+  }, []);
 
   useEffect(() => {
-    requestBackend({ url: '/categories' }).then((response) => {
-      setCategories(response.data);
-    });
-  }, []);
+    getDelete();
+  }, [getDelete]);
 
   return (
     <>
@@ -30,9 +51,13 @@ const ListCategories = () => {
           </div>
         </div>
       </div>
-      {categories?.content.map((category) => (
-        <CardCategory nameCategory={category} key={category.id} />
-      ))}
+      {isLoader ? (<h1>Carregando....</h1>) : (categories?.content.map((category) => (
+        <CardCategory
+          nameCategory={category}
+          key={category.id}
+          onDelete={() => getDelete()}
+        />
+      )))}
     </>
   );
 };

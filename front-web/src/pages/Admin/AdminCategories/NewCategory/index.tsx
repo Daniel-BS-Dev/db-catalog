@@ -43,7 +43,7 @@ const NewCategory = () => {
             toast.success('Categoria adicionada com sucesso!')
           })
           .catch(() => {
-              toast.error('ocorreu um erro ao adicionar a categoria')
+              toast.error('Nome da categoria deve ter no minimo 5 caracter')
           })
           
     };

@@ -12,7 +12,7 @@ public class CategoryDTO implements Serializable {
 	
 	private Long id;
 	
-	@Size(min=5, max=60, message="Deve ter entre 5 e 60 caracteres")
+	@Size(min=2, max=60, message="Deve ter entre 2 e 60 caracteres")
 	@NotBlank(message= "campo obrigatorio")
 	private String name;
 	

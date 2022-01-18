@@ -9,6 +9,7 @@ import { Category } from 'types/category';
 import { Product } from 'types/product';
 import Select from 'react-select';
 import './styles.css';
+import { toast } from 'react-toastify';
 
 
 type ProductUrl = {
@@ -64,12 +65,12 @@ const NewProduct = () => {
       data,
       withCredentials: true,
     };
-    requestBackend(config).then((response) => {
-      console.log(response);
+    requestBackend(config).then(() => {
+      navigate('/admin/products/')
+      toast.success("Producto Salvo com sucesso")
     })
-    .finally(() => {
-      navigate('/admin/products/');
-      document.location.reload();
+    .catch(() => {
+      alert('Ocorreu um erro. Verifique os dados e tente novamente. Nome do produto deve tem no minimo 2 a 25 caracteres, Valor tem que ser positivo, descrição deve ter entre 2 a 2500 caracteres')
     })
   };
 
