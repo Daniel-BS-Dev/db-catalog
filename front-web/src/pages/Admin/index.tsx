@@ -1,10 +1,10 @@
 import { hasAnyRoles, isAuthenticated } from 'util/request';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import AdminCategories from './AdminCategories';
 import AdminProducts from './AdminProducts';
 import NavBarAdmin from './NavBarAdmin';
 import AdminUsers from './AdminUsers';
 import './styles.css';
+import AdminCategories from './AdminCategories';
 
 const Admin = () => {
   const auth = isAuthenticated();
@@ -20,7 +20,7 @@ const Admin = () => {
             element={auth ? <AdminProducts /> : redirect}
           />
           <Route
-            path="/categories"
+            path="/categories/*"
             element={auth ? <AdminCategories /> : redirect}
           />
           <Route path="/usernames" element={auth ? <AdminUsers /> : redirect} />
