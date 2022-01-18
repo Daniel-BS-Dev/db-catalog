@@ -39,11 +39,13 @@ const NewCategory = () => {
           };
           requestBackend(config).then((response) => {
             console.log(response);
-          })
-          .finally(() => {
             navigate('/admin/categories/');
             toast.success('Categoria adicionada com sucesso!')
           })
+          .catch(() => {
+              toast.error('ocorreu um erro ao adicionar a categoria')
+          })
+          
     };
 
     const handleCancel = () => {
