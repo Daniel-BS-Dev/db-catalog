@@ -3,12 +3,24 @@ import { SpringPage } from 'types/vendor/spring';
 import { Category } from 'types/category';
 import CardCategory from '../CardCategory';
 import { requestBackend } from 'util/request';
-import CategoryFilter from 'components/CategoryFilter';
+import CategoryFilter, { CategoryFilterData } from 'components/CategoryFilter';
 import { Link } from 'react-router-dom';
 import { AxiosRequestConfig } from 'axios';
+import './styles.css';
+
+
+type ControlComponentsData = {
+  filterData: CategoryFilterData;
+};
 
 const ListCategories = () => {
   const [categories, setCategories] = useState<SpringPage<Category>>();
+  const [controlComponentsData, setControlComponentsData] =
+    useState<ControlComponentsData>({
+      filterData: {
+        name: '',
+      },
+    });
   const [isLoader, setIsLoader] = useState(false);
 
   const getDelete= useCallback(() => {
@@ -17,8 +29,7 @@ const ListCategories = () => {
       url: '/categories',
       withCredentials: true,
       params: {
-        page: 0,
-        linePerPage: 3,
+        name: controlComponentsData.filterData.name
        
       },
     };
@@ -30,7 +41,7 @@ const ListCategories = () => {
       .finally(() => {
         setIsLoader(false);
       });
-  }, []);
+  }, [controlComponentsData]);
 
   useEffect(() => {
     getDelete();
@@ -47,17 +58,20 @@ const ListCategories = () => {
             <button className="btn btn-primary text-white ">ADICIONAR</button>
           </Link>
           <div className="col-12 col-md-8">
-            <CategoryFilter />
+            <CategoryFilter  filterData={(data: CategoryFilterData) => {
+                setControlComponentsData({ filterData: data });
+              }}/>
           </div>
         </div>
       </div>
-      {isLoader ? (<h1>Carregando....</h1>) : (categories?.content.map((category) => (
+      <div className="container-category-list">
+      {isLoader ? (<h1  className="carregando">Carregando....</h1>) : (categories?.content.map((category) => (
         <CardCategory
           nameCategory={category}
           key={category.id}
           onDelete={() => getDelete()}
         />
-      )))}
+      )))}</div>
     </>
   );
 };

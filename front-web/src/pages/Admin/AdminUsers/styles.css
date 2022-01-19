@@ -1,0 +1,121 @@
+.container-user{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.table-user{
+  display:table-cell;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding:10px 10px 0px 10px;
+}
+
+
+.table-name, .table-sobrename{
+  display: none;
+}
+
+.table-user-header{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  color: #263238;
+ 
+}
+
+.table-user-body{
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  color: #9E9E9E;
+
+}
+
+.table-user tr{
+  border-bottom: 1px solid #E1E1E1;
+}
+
+.table-user-header td{
+    padding: 10px 50px 20px 10px;
+}   
+
+.table-user-body .table-email{
+    width:100%;
+    word-break: break-all;
+}
+
+.button-user-delete{
+    border: 1px solid #DF5753;
+    border-radius:10px;
+    font-size: 15px;
+    padding: 10px;
+    margin: 15px 5px 15px 10px;
+    text-transform: uppercase;
+    color: #DF5753;
+    background: none;
+} 
+
+.carregando{
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  padding: 40px;
+}   
+
+
+@media screen and (min-width: 992px){
+  .table-user{
+    max-width:900px;
+  }
+
+.table-user-header tr, .table-user-body tr{
+  padding: 10px 20px;
+}   
+
+.table-name, .table-sobrename{
+  display: unset;
+}
+      
+.table-user-header tr, .table-user-body tr{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}   
+
+.table-user-header td, .table-user-body td{
+  width:25%;
+}   
+
+.table-user-body td{
+  word-break: break-all;
+}   
+
+.table-user-body .table-email{
+  width:25%;
+  word-break: break-all;
+}
+
+.table-user-body{
+  font-size: 17px;
+   
+}
+
+.button-user-delete{
+  border: 1px solid #DF5753;
+  border-radius:10px;
+  font-size: 15px;
+  padding: 10px;
+  margin: 15px 5px 15px 100px;
+  text-transform: uppercase;
+  color: #DF5753;
+  background: none;
+}
+   
+
+}
+

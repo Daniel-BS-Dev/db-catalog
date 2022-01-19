@@ -77,7 +77,7 @@ const ListProduct = () => {
           </div>
           <div className="row">
             {isLoader ? (
-              <h1>Carregando...</h1>
+              <h1  className="carregando">Carregando...</h1>
             ) : (
               products?.content.map((product) => (
                 <div
