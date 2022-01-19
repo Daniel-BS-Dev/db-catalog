@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { ReactComponent as Search } from '../../assets/image/lupa.svg';
-import './styles.css';
 
 export type CategoryFilterData = {
  name: string;
@@ -16,7 +15,7 @@ const UserFilter = () => {
 
  const onSubmit = (formData: CategoryFilterData) => {
   //  filterData(formData);
-  //  console.log(formData)
+    console.log(formData)
   }
 
   return (

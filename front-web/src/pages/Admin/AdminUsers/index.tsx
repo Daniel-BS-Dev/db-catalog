@@ -1,4 +1,5 @@
 import { requestBackend } from 'util/request';
+import { SpringPage } from 'types/vendor/spring';
 import { useEffect, useState } from 'react';
 import { AxiosRequestConfig } from 'axios';
 import { User } from 'types/user';
@@ -7,7 +8,7 @@ import UserFilter from 'components/UserFilter';
 
 
 const AdminUsers = () => {
- const [page, setPage] = useState<User[]>([]);
+ const [page, setPage] = useState<SpringPage<User>>();
  const [isLoader, setIsLoader] = useState(false);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const AdminUsers = () => {
       withCredentials: true,
       params: {
         page: 0,
-        size: 12,
+        linePerPages: 12,
       },
     };
     
@@ -45,7 +46,7 @@ const AdminUsers = () => {
   
     {isLoader ? (
         <h1 className="carregando">Carregando...</h1>
-      ) : (page.map(item => (
+      ) : (page?.content.map(item => (
        <tbody key={item.id}  className="table-user-body">
          <tr>
            <td className="table-name">{item.firstName}</td>
