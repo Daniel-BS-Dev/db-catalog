@@ -6,7 +6,6 @@ import { User } from 'types/user';
 import './styles.css';
 import UserFilter from 'components/UserFilter';
 
-
 const AdminUsers = () => {
  const [page, setPage] = useState<SpringPage<User>>();
  const [isLoader, setIsLoader] = useState(false);

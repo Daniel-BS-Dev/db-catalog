@@ -35,16 +35,15 @@ public class UserResource {
 
 	@GetMapping
 	public ResponseEntity<Page<UserDTO>> findAll(
-			@RequestParam(value = "name", defaultValue = "") String name,
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linePerPages", defaultValue = "12") Integer linePerPages,
 			@RequestParam(value = "direction", defaultValue = "DESC") String direction,
-			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy
+			@RequestParam(value = "orderBy", defaultValue = "firstName") String orderBy
 
 	) {
 
 		PageRequest pageRequest = PageRequest.of(page, linePerPages, Direction.valueOf(direction), orderBy);
-		Page<UserDTO> list = service.findAllPage(pageRequest, name.trim());
+		Page<UserDTO> list = service.findAllPage(pageRequest);
 
 		return ResponseEntity.ok().body(list);
 	}
