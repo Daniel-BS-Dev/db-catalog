@@ -9,6 +9,8 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,10 +18,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.daniel.DBCatalog.dbcatalog.dto.CategoryDTO;
 import com.daniel.DBCatalog.dbcatalog.dto.RoleDTO;
 import com.daniel.DBCatalog.dbcatalog.dto.UserDTO;
 import com.daniel.DBCatalog.dbcatalog.dto.UserInsertDTO;
 import com.daniel.DBCatalog.dbcatalog.dto.UserUpdateDTO;
+import com.daniel.DBCatalog.dbcatalog.entities.Category;
 import com.daniel.DBCatalog.dbcatalog.entities.Role;
 import com.daniel.DBCatalog.dbcatalog.entities.User;
 import com.daniel.DBCatalog.dbcatalog.repositories.RoleRepository;
@@ -45,9 +49,9 @@ public class UserService implements UserDetailsService {
 	private RoleRepository roleRepository;
 
 	@Transactional(readOnly = true)
-	public List<UserDTO> findAllPage() {
-		List<User> list = repository.findAll();
-		return list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+	public Page<UserDTO> findAllPage(PageRequest page, String name) {
+		Page<User> list = repository.find(page, name);
+		return list.map(x -> new UserDTO(x));
 	}
 
 	@Transactional(readOnly = true)

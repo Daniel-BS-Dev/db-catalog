@@ -1,9 +1,9 @@
-import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/request';
 import { useEffect, useState } from 'react';
 import { AxiosRequestConfig } from 'axios';
 import { User } from 'types/user';
 import './styles.css';
+import UserFilter from 'components/UserFilter';
 
 
 const AdminUsers = () => {
