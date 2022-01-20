@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	User findByEmail(String email);
 	
 	@Query("SELECT DISTINCT obj FROM User obj "
-			+ "WHERE (LOWER(obj.firstName OR obj.email) LIKE LOWER(CONCAT('%',:name,'%')))") 
+			+ "WHERE (LOWER(obj.firstName) LIKE LOWER(CONCAT('%',:name,'%')))") 
 	Page<User> find(Pageable page, String name);
 	
 	
