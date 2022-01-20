@@ -45,7 +45,7 @@ public class UserResource {
 	) {
 
 		PageRequest pageRequest = PageRequest.of(page, linePerPages, Direction.valueOf(direction), orderBy);
-		Page<UserDTO> list = service.findAllPage(pageRequest, name.trim(), email.trim());
+		Page<UserDTO> list = service.findAllPage(pageRequest, name.trim());
 
 		return ResponseEntity.ok().body(list);
 	}

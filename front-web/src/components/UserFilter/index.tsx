@@ -1,21 +1,22 @@
 import { useForm } from 'react-hook-form';
 import { ReactComponent as Search } from '../../assets/image/lupa.svg';
 
-export type CategoryFilterData = {
+export type UserFilterData = {
  name: string;
 };
 
-//type Props = {
-  //filterData : (data : CategoryFilterData) => void;
-//}
+type Props = {
+  filterData : (data : UserFilterData) => void;
+}
 
-const UserFilter = () => {
+const UserFilter = ({filterData} : Props) => {
 
-  const { register, handleSubmit} = useForm<CategoryFilterData>();
+  const { register, handleSubmit, setValue} = useForm<UserFilterData>();
 
- const onSubmit = (formData: CategoryFilterData) => {
-  //  filterData(formData);
-    console.log(formData)
+ const onSubmit = (formData: UserFilterData) => {
+    filterData(formData); // pegar o valor digitado
+    setValue('name', ''); // limpar dps da consulta
+
   }
 
   return (
