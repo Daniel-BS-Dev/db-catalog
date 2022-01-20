@@ -53,9 +53,6 @@ const NewProduct = () => {
   const onSubmit = (formData: Product) => {
     const data = {
       ...formData,
-      imgUrl: isEditing
-        ? formData.imgUrl
-        : '	https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/3-big.jpg',
        price: String(formData.price).replace(',', ".")
     };
 
@@ -142,6 +139,20 @@ const NewProduct = () => {
               />
               <div className="invalid-feedback d-block login-error input-error">
                 {errors.price?.message}
+              </div>
+              <input
+                type="text"
+                placeholder="URL da imagem"
+                className={`form-control ${errors.imgUrl ? 'is-invalid' : ''}`}
+                {...register('imgUrl', {
+                  pattern : {
+                    value: /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
+                    message: 'Essa URL não é valida. Verifique-a e tente novamente'
+                  }
+                })}
+              />
+               <div className="invalid-feedback d-block login-error input-error">
+                {errors.imgUrl?.message}
               </div>
             </div>
             <div className="col-12 col-lg-6 description-new-product">
