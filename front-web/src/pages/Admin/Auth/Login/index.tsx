@@ -18,7 +18,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   //estado para comunicação com o nav
-  const { authContextData, setAuthContextData } = useContext(AuthContext);
+  const {setAuthContextData } = useContext(AuthContext);
 
   const onSubmit =  (formData: Credencials) => {
     requestBackendLogin(formData)

@@ -10,9 +10,9 @@ const Footer = () => (
             <address>Daniel Benedito da Silva</address>
         </div>
         <div className="home-footer-images">
-            <a href='https://www.linkedin.com/in/daniel-benedito-b99546213' target="_blank"><Linkedin className='imgFooter'/></a>
-            <a href='https://www.instagram.com/danielbenedito3' target="_blank"><Instagram className='imgFooter'/></a>
-            <a href='https://github.com/Daniel-BS-Dev' target="_blank"><GitHub className='imgFooter'  /></a>
+            <a href='https://www.linkedin.com/in/daniel-benedito-b99546213' target="_blank" rel="noreferrer" ><Linkedin className='imgFooter'/></a>
+            <a href='https://www.instagram.com/danielbenedito3' target="_blank" rel="noreferrer" ><Instagram className='imgFooter'/></a>
+            <a href='https://github.com/Daniel-BS-Dev' target="_blank" rel="noreferrer" ><GitHub className='imgFooter'  /></a>
         </div>
     </div>
 </footer>

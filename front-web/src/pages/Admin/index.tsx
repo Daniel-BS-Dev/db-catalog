@@ -1,4 +1,4 @@
-import { hasAnyRoles, isAuthenticated } from 'util/request';
+import { isAuthenticated } from 'util/request';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AdminProducts from './AdminProducts';
 import NavBarAdmin from './NavBarAdmin';

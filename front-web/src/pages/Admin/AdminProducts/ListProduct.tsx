@@ -7,7 +7,6 @@ import CardProduct from './CardProduct';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
 import ProductFilter, { ProductFilterData } from 'components/ProductFilter';
-import Pagination from 'components/Pagination';
 
 type ControlComponentsData = {
   activePage: number;

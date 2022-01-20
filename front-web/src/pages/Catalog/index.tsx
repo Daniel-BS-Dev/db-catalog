@@ -1,4 +1,4 @@
-import { BASE_URL, requestBackend } from 'util/request';
+import { requestBackend } from 'util/request';
 import { SpringPage } from 'types/vendor/spring';
 import Pagination from 'components/Pagination';
 import CardProduct from 'pages/CardProduct';

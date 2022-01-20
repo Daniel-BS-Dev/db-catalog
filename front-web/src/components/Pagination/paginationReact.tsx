@@ -1,8 +1,6 @@
 import { ReactComponent as Arrow } from '../../assets/image/Seta.svg';
 import ReactPaginate from 'react-paginate';
 import './styles.css';
-import { generatedList } from 'util/list';
-
 
 type Props = {
     forcePage?: number;
