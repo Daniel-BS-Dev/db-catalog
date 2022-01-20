@@ -36,7 +36,6 @@ public class UserResource {
 	@GetMapping
 	public ResponseEntity<Page<UserDTO>> findAll(
 			@RequestParam(value = "name", defaultValue = "") String name,
-			@RequestParam(value = "email", defaultValue = "") String email,
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linePerPages", defaultValue = "12") Integer linePerPages,
 			@RequestParam(value = "direction", defaultValue = "DESC") String direction,
