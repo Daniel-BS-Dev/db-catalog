@@ -52,14 +52,14 @@
 }
 
 .cardProduct-description .price-container h4 {
-  font-size: 30px;
-  margin-bottom: 30px;
+  font-size: 22px;
+  margin-bottom: 20px;
 }
 
 .cardProduct-description .price-container strong {
-  font-size: 20px;
-  margin-bottom: 25px;
-  margin-right: 5px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  margin-right: 2px;
 
 }
 

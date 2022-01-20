@@ -48,24 +48,25 @@
 }
 
 .table-user-header td{
-    padding: 10px 50px 20px 10px;
-}   
+  padding: 10px 50px 20px 20px;
+}    
 
 .table-user-body .table-email{
-    width:90%;
-    padding-left: 10px;
-    word-break: break-all;
+  font-size: 12px;
+  width:90%;
+  word-break: break-all;
 }
 
 .button-user-delete{
-    border: 1px solid #DF5753;
-    border-radius:10px;
-    font-size: 15px;
-    padding: 10px;
-    margin: 15px 5px 15px 10px;
-    text-transform: uppercase;
-    color: #DF5753;
-    background: none;
+  border: 1px solid #DF5753;
+  border-radius:10px;
+  font-size: 15px;
+  padding: 10px;
+  margin: 15px 20px 15px 0px;
+  text-transform: uppercase;
+  color: #DF5753;
+  background: none;
+   
 } 
 
 .carregando{
@@ -75,8 +76,33 @@
   padding: 40px;
 }   
 
+.format-name{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-bottom: none;
+  
+}
+
+@media screen and (min-width: 768px){
+  .table-user-body .table-email{
+    font-size: 14px;
+  }
+
+  .table-user-body{
+    font-weight: normal;
+    font-size: 16px;
+  }
+}
+
 
 @media screen and (min-width: 992px){
+  .container-user-filter{
+    width: 90%;
+  
+  }
+
   .table-user{
     max-width:900px;
   }
@@ -87,8 +113,14 @@
 
 .table-name, .table-sobrename{
   display: unset;
+
 }
-      
+
+.table-user-header .table-sobrename{
+
+  margin:0px 50px;
+}
+ 
 .table-user-header tr, .table-user-body tr{
   display: flex;
   justify-content: space-around;
@@ -96,6 +128,7 @@
 }   
 
 .table-user-header td, .table-user-body td{
+  text-align: center;
   width:25%;
 }   
 
@@ -105,6 +138,7 @@
 
 .table-user-body .table-email{
   width:25%;
+  font-size: 17px;
   word-break: break-all;
 }
 
@@ -122,6 +156,16 @@
   text-transform: uppercase;
   color: #DF5753;
   background: none;
+}
+
+.format-name{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0px;
+  border-bottom: none;
+  
 }
    
 

@@ -14,10 +14,20 @@
 }
 
 .container-product-filter{
+  margin: 0px ;
   height: 150px;
-  padding: 10px;
+  padding: 5px;
   flex:1 !important;
-  margin-bottom: 30px;
+
+}
+
+.row-search{
+  margin:0px 10px;
+ 
+}
+
+.list-product-margin{
+  margin:50px 10px;
 }
 
 .content-card-product {
@@ -68,7 +78,7 @@
 }
 
 .price-container strong {
-  margin-top: -30px;
+  margin-top: -20px;
   font-size: 20px;
   
 }
@@ -109,6 +119,12 @@
   font-size: 14px;
   line-height: 19px;
   border-radius: 10px;
+}
+
+.pagination-list-product{
+  padding: 0px 30px;
+  width: 100%;
+  
 }
 
 @media screen and (min-width: 576px) { 

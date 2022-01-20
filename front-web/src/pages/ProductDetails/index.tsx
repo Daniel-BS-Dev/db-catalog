@@ -42,8 +42,8 @@ const ProductDetails = () => {
           </Link>
         </div>
        {isLoader ? (<h1 className='productdetails-isLoader'>Carregando ...</h1>) : (
-          <div className="row">
-          <div className="productDetails-container-info col-xl-6">
+          <div className="row-container">
+            <div className='product-image-price'>
             <div className="productDetails-image">
               <img src={product?.imgUrl} alt={product?.name} />
             </div>
@@ -51,16 +51,14 @@ const ProductDetails = () => {
               <h2>{product?.name}</h2>
               {product && <Price price={product?.price} />}
             </div>
-          </div>
-          <div className="productDetails-contails-description col-xl-6">
+            </div>
             <div className="productdetails-description">
               <h3>Descrição do Produto</h3>
               <p>{product?.description}</p>
             </div>
           </div>
-        </div>
        )}
-      </div>
+       </div>
     </div>
   );
 };

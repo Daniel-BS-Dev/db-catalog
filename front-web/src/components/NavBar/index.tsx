@@ -2,6 +2,7 @@ import {getTokenData, isAuthenticated, removeToken} from 'util/request';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useContext, useEffect} from 'react';
 import { AuthContext } from 'AuthContext';
+import 'bootstrap/js/src/collapse.js';
 import './styles.css';
 
 
@@ -35,7 +36,7 @@ const NavBar = () => {
     
   }
 
-  return (
+  return (// para funcionar o sandwich eu tenho que colocar ou navbar-dark
     <nav className="navbar navbar-expand-md navbar-dark bg-primary nav-container">
       <div className="container-fluid">
         <Link to="/" className="nav-logo-text">

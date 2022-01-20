@@ -1,6 +1,7 @@
 import { ReactComponent as Arrow } from '../../assets/image/Seta.svg';
 import ReactPaginate from 'react-paginate';
 import './styles.css';
+import { generatedList } from 'util/list';
 
 
 type Props = {
@@ -11,12 +12,13 @@ type Props = {
 }
 
 const ReactLib = ({forcePage, pageCount, range, onChange } : Props) => {
+
     return(
         <ReactPaginate 
           forcePage={forcePage}
           pageCount={pageCount} //numero de pagina
           pageRangeDisplayed={range} // numero que vai aparecer antes dos ...
-          onPageChange = {(items) => (onChange) ? onChange(items.selected) : {}}
+          onPageChange = {( items ) => (onChange) ? onChange(items.selected) : {}}
           marginPagesDisplayed={1} // numero dps dos ...   
           containerClassName='pagination-container' // conatiner do meus botoes
           pageLinkClassName='pagination-item' // tipo dos botoes

@@ -1,5 +1,5 @@
 .pagination-container {
-  width: 90%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,16 +7,16 @@
 }
 
 .pagination-arrow-previous {
-  margin-right: 15px;
+  margin-right: 10px;
   transform: rotate(180deg);
   color: #407bff;
 }
 
 .pagination-number {
-  display: flex;
+    display: flex;
     border-radius: 50%;
     background: #e1e1e1;
-    margin-right: 5px;
+    margin-right: 3px;
     padding: 9px;
     font-weight: bold;
     font-size: 16px;
@@ -30,9 +30,9 @@
 
 .pagination-item{
   border-radius: 50%;
-  padding:15px;
+  padding:10px;
   background: #e1e1e1;
-  margin-right: 10px;
+  margin-right: 5px;
   font-weight: bold;
   font-size: 16px;
   line-height: 22px;
@@ -48,7 +48,7 @@
 }
 
 .pagination-arrow-next {
-  padding-left: 10px;
+  padding-left: 5px;
   color: #407bff;
 }
 

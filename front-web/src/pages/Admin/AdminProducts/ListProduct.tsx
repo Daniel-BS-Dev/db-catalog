@@ -7,6 +7,7 @@ import CardProduct from './CardProduct';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
 import ProductFilter, { ProductFilterData } from 'components/ProductFilter';
+import Pagination from 'components/Pagination';
 
 type ControlComponentsData = {
   activePage: number;
@@ -60,13 +61,13 @@ const ListProduct = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="row">
+      <div className="">
+        <div className="row row-search">
           <Link
             to="/admin/products/create"
             className="col-12 col-md-3 list-product-button-add"
           >
-            <button className="btn btn-primary text-white ">ADICIONAR</button>
+            <button className="btn btn-primary text-white">ADICIONAR</button>
           </Link>
           <div className="col-12 col-md-8 container-product-filter ">
             <ProductFilter
@@ -75,7 +76,8 @@ const ListProduct = () => {
               }}
             />
           </div>
-          <div className="row">
+          </div>
+          <div className="row list-product-margin">
             {isLoader ? (
               <h1  className="carregando">Carregando...</h1>
             ) : (
@@ -88,22 +90,26 @@ const ListProduct = () => {
                 </div>
               ))
             )}
-          </div>
         </div>
       </div>
-      <ReactLib
-        forcePage={products?.number}
-        pageCount={products ? products.totalPages : 0}
-        range={3}
-        onChange={(isActivePage: number) =>
-          setControlComponentsData({
-            activePage: isActivePage,
-            filterData: controlComponentsData.filterData,
-          })
-        }
-      />
+      <div className='pagination-list-product'>
+      {products && (
+            <ReactLib
+            forcePage={products?.number}
+            pageCount={products ? products.totalPages : 0}
+            range={2}
+            onChange={(isActivePage: number) =>
+              setControlComponentsData({
+                activePage: isActivePage,
+                filterData: controlComponentsData.filterData,
+              })}
+            />
+          )}
+     
+      </div>
     </>
   );
 };
 
 export default ListProduct;
+
