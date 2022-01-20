@@ -20,8 +20,8 @@ export const requestBackend = (config: AxiosRequestConfig) => {
 };
 
 //FAZENDO REQUISIÇÃO DE LOGIN
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'dscatalog';
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'dscatalog123';
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'DBcatalog';
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'DBcatalog123';
 
 type LoginData = {
   username: string;
@@ -95,7 +95,6 @@ axios.interceptors.response.use(
     if (error.response.status === 401) {
       history.push('/admin/auth');
       document.location.reload();
-      
     }
 
     if (error.response.status === 403) {
