@@ -20,7 +20,6 @@ e categorias. Usuários sem logar poderá apenas ver a listagem de produtos ou o
   Esse Bootcamp foi devidido em 12 capitulos abaixo colocarei a lista de conteúdo apresentado e aprendido durante o mesmo:
   
   ## 1. Capítulo foi apresentado os conceitos de como fazer um crud completo
-  
   ### Competências
   - Criar projeto Spring Boot
   - Criar monorepo Git
@@ -45,35 +44,34 @@ e categorias. Usuários sem logar poderá apenas ver a listagem de produtos ou o
   - Associações entre entidades (N-N)
   
   ## 2. Capítulo Testes automatizados no back end
-
-    ### Competências
-      - Fundamentos de testes automatizados
-      - Tipos de testes
-      - Benefícios
-      - TDD - Test Driven Development
-      - Boas práticas e padrões
-      - JUnit
-      - Básico (vanilla)
-      - Spring Boot
-      - Repositories
-      - Services
-      - Resources (web)
-      - Integração
-      - Mockito & MockBean
-      - @Mock
-      - @InjectMocks
-      - Mockito.when / thenReturn / doNothing / doThrow
-      - ArgumentMatchers
-      - Mockito.verify
-      - @MockBean
-      - @MockMvc
-      * Etapas
-         - Fundamentos + JUnit vanilla (exercício de fixação)
-         - Testes de repository (exercício de fixação)
-         - Testes de unidade com Mockito (exercício de fixação)
-         - Testes da camada web com MockMvc (exercício de fixação)
-         - Testes de integração
-         - Desafio TDD (desafio final para entregar)
+  ### Competências
+  - Fundamentos de testes automatizados
+  - Tipos de testes
+  - Benefícios
+  - TDD - Test Driven Development
+  - Boas práticas e padrões
+  - JUnit
+  - Básico (vanilla)
+  - Spring Boot
+  - Repositories
+  - Services
+  - Resources (web)
+  - Integração
+  - Mockito & MockBean
+  - @Mock
+  - @InjectMocks
+  - Mockito.when / thenReturn / doNothing / doThrow
+  - ArgumentMatchers
+  - Mockito.verify
+  - @MockBean
+  - @MockMvc
+  - Etapas
+  - Fundamentos + JUnit vanilla (exercício de fixação)
+  - Testes de repository (exercício de fixação)
+  - Testes de unidade com Mockito (exercício de fixação)
+  - Testes da camada web com MockMvc (exercício de fixação)
+  - Testes de integração
+  - Desafio TDD (desafio final para entregar)
 
   
   ## 3. Capítulo foi visto sobre validação e segurança
@@ -106,7 +104,7 @@ e categorias. Usuários sem logar poderá apenas ver a listagem de produtos ou o
      - Pré-autorização de métodos
      
    ## 5 Capitulo Consultas ao banco de dados:
-    ### Competências
+   ### Competências
    * SQL e JPQL
      - Revisão SQL, referências, exercícios
      - Estudos de caso SQL e JPQL
@@ -121,7 +119,7 @@ e categorias. Usuários sem logar poderá apenas ver a listagem de produtos ou o
      - Problema N+1 consultas
      
      ## 6. Capítulo Deploy
-    ### Competências
+     ### Competências
      * Docker
        - Conceitos
        - Comandos
@@ -141,110 +139,110 @@ e categorias. Usuários sem logar poderá apenas ver a listagem de produtos ou o
        - Elastic Beanstalk
        
        ## 7. Capítulo Layout e navegação
-        ### Competências
-         - ReactJS
-         - Criação de projeto
-         - Estrutura do projeto
-         - Componentes
-         - Importações
-         - Uso de imagens
-         - Layout
-         - HTML
-         - CSS
-         - Estilização manual
-         - Flexbox
-         - Bootstrap
-         - Responsividade
-         - Execução de projeto Figma
-         - Rotas
-         - React Router DOM
-         - Rotas e links
+       ### Competências
+       - ReactJS
+       - Criação de projeto
+       - Estrutura do projeto
+       - Componentes
+       - Importações
+       - Uso de imagens
+       - Layout
+       - HTML
+       - CSS
+       - Estilização manual
+       - Flexbox
+       - Bootstrap
+       - Responsividade
+       - Execução de projeto Figma
+       - Rotas
+       - React Router DOM
+       - Rotas e links
+                 
+   ## 8. Capítulo Interação com a API
+   ### Competências
+   - Props
+   - Mais sobre layout
+   - Tela ProductDetails
+   - Tela Catalog
+   - Tela Admin
+   - Mais sobre Rotas
+   - Parâmetros de URL
+   - Hierarquias (nesting)
+   - Redirecionamentos
+   - Integração com back end
+   - Axios
+   - React Hooks
+   - useState
+   - useEffect
+   - Efeitos: “loaders”
+   - Formulários “raiz”
+   - Tratamento de eventos
+   - Manipulação do estado do formulário
+   - Submissão de formulário
          
-         ## 8. Capítulo Interação com a API
-          ### Competências
-         - Props
-         - Mais sobre layout
-         - Tela ProductDetails
-         - Tela Catalog
-         - Tela Admin
-         - Mais sobre Rotas
-         - Parâmetros de URL
-         - Hierarquias (nesting)
-         - Redirecionamentos
-         - Integração com back end
-         - Axios
-         - React Hooks
-         - useState
-         - useEffect
-         - Efeitos: “loaders”
-         - Formulários “raiz”
-         - Tratamento de eventos
-         - Manipulação do estado do formulário
-         - Submissão de formulário
-         
-         ## 9. Capítulo Autenticação e autorização
-          ### Competências
-          - Formulários
-          - React Hook Form
-          - Validação de formulário, expressões regulares
-          - Mensagens de erro e estilização condicional
-          - Login OAuth2
-          - Interceptors
-          - LocalStorage
-          - Acesso a dados
-          - JSON parse / stringify
-          - Estado global com Context API
-          - Fluxos de autenticação e autorização
-          - Rotas protegidas
-          - Redirecionamentos de login e de autorização
-          - Redirecionamentos especiais para experiência do usuário (UX)
-          - Permissionamento em nível de rotas
-          - Restrição de conteúdo (UI) baseada em perfil de usuário
+  ## 9. Capítulo Autenticação e autorização
+  ### Competências
+  - Formulários
+  - React Hook Form
+  - Validação de formulário, expressões regulares
+  - Mensagens de erro e estilização condicional
+  - Login OAuth2
+  - Interceptors
+  - LocalStorage
+  - Acesso a dados
+  - JSON parse / stringify
+  - Estado global com Context API
+  - Fluxos de autenticação e autorização
+  - Rotas protegidas
+  - Redirecionamentos de login e de autorização
+  - Redirecionamentos especiais para experiência do usuário (UX)
+  - Permissionamento em nível de rotas
+  - Restrição de conteúdo (UI) baseada em perfil de usuário
           
-          ## 10. Capítulo CRUD, paginação, filtros
-          ### Competências
-           - CRUD responsivo
-           - Listagem de dados
-           - Formulário
-           - Inserção, edição e remoção
-           - Comunicação entre componentes com eventos (padrão observer)
-           - React Hook Form
-           - Integração de libs com React Hook Form
-           - React Select
-           - React Currency Input Field
-           - Outras libs
-           - React Pagination
-           - React Toastfy
-           - Filtragem de dados
-           - Controle de referência com hook useCallback
+## 10. Capítulo CRUD, paginação, filtros
+### Competências
+- CRUD responsivo
+- Listagem de dados
+- Formulário
+- Inserção, edição e remoção
+- Comunicação entre componentes com eventos (padrão observer)
+- React Hook Form
+- Integração de libs com React Hook Form
+- React Select
+- React Currency Input Field
+- Outras libs
+- React Pagination
+- React Toastfy
+- Filtragem de dados
+- Controle de referência com hook useCallback
            
-           ## 11. Capítulo Testes e implantação
-            ### Competências
-            - JEST e Testing Library
-            - Testes de funções JS/TS
-            - Execução de testes, modo watch
-            - Bloco describe e suíte de testes
-            - Mock de funções com spyOn
-            - Testes de componentes React
-            - Testes de unidade e de integração
-            - Mock de funções com jest.fn()
-            - Mock de requisições com MSW
-            - Mock do React Router DOM
-            - Simulação de interação do usuário
-            - Fixtures
-            - Inputs de formulário
-            - Submissão de formulário
-            - Implantação com CI/CD
-            - Netlify
+## 11. Capítulo Testes e implantação
+### Competências
+- JEST e Testing Library
+- Testes de funções JS/TS
+- Execução de testes, modo watch
+- Bloco describe e suíte de testes
+- Mock de funções com spyOn
+- Testes de componentes React
+- Testes de unidade e de integração
+- Mock de funções com jest.fn()
+- Mock de requisições com MSW
+- Mock do React Router DOM
+- Simulação de interação do usuário
+- Fixtures
+- Inputs de formulário
+- Submissão de formulário
+- Implantação com CI/CD
+- Netlify
             
-            ## 12. Capitulo Dashboard
-              ### Competências
-               - Biblioteca Apex Charts
-               - Gráfico de rosca
-               - Gráfico de coluna/barra
-               - Sumário de dados
-               - Tabelas de dados
-               - Criação e integração de componentes de filtragem
+## 12. Capitulo Dashboard
+### Competências
+- Biblioteca Apex Charts
+- Gráfico de rosca
+- Gráfico de coluna/barra
+- Sumário de dados
+- Tabelas de dados
+- Criação e integração de componentes de filtragem
 
    
 # Tecnologias Utilizadas 
