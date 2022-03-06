@@ -17,7 +17,7 @@ e categorias. Usuários sem logar poderá apenas ver a listagem de produtos ou o
    
  # Tudo que Aprendi
  
-  Esse Bootcamp foi devidido em 12 capitulos abaixo colocarei a lista de conteúdo apresentado e aprendido durante o mesmo:
+  Esse Bootcamp foi dividido em 12 capitulos abaixo colocarei a lista de conteúdo apresentado e aprendido durante o mesmo:
   
   ## 1. Capítulo foi apresentado os conceitos de como fazer um crud completo
   ### Competências
